@@ -3,11 +3,14 @@
     <head>
         <!-- Inclusion de estilos-->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+        <link rel="StyleSheet" href="./src/css/styles.css" type="text/css">
+        
     </head>
     <body>
         <div class="menuContainer"></div>
         <div class="startContainer"></div>
         <div class="container serviciosContainer" id="Servicios"></div>
+        <div class="container equipoContainer" id="Equipo"></div>
         <div class="container">
             <footer class="footerContainer d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top"></footer>
         </div>
@@ -24,6 +27,7 @@
           $('.startContainer').load('./secciones/inicio.html');
           $('.footerContainer').load('./secciones/footer.html');
           $('.serviciosContainer').load('./secciones/servicios.html');
+          $('.equipoContainer').load('./secciones/equipo.html');
 
         });
     </script>
