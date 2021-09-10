@@ -3,256 +3,173 @@
     <head>
          <!-- Inclusion de estilos-->
          <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
-         <link rel="StyleSheet" href="/Sprint1/src/css/styles.css" type="text/css">
+         <link rel="StyleSheet" href="../../src/css/styles.css" type="text/css">
          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
-         <link rel="shortcut icon" href="/Sprint1/src/images/favicon.ico" />
+         <link rel="shortcut icon" href="../../src/images/favicon.ico" />
     </head>
     <body>
-        <div class="mfp-container mfp-inline-holder"><div class="mfp-content"><div id="loginmodal" class="reglog-modal-wrapper clearfix" style="background-image: url('https://cr00.epimg.net/radio/imagenes/2019/03/28/bogota/1553787583_864116_1553787748_noticia_normal.jpg');height:760px;">
-            <div class="overlay-black clearfix" style="height:760px;">
-                <div class="leftside-content">
-                    <div class="site-logo-wrapper mb-80">
-                        <a href="#!" class="logo">
-                            <img src="/Sprint1/src/images/Imagen1.png" alt="logo_not_found">
-                        </a>
-                    </div>
-                    <div class="link-groups">
-                        <a style="margin: 20px" href="#" class="about-btn custom-btn" onclick="$('#fomulario-registrar').hide(); $('#fomulario-login').show(); $('#formulario-olvido-contrasena').hide(); $('#formulario-correo-confirmacion').hide()">Iniciar Sesión</a>
-                        <br>
-                        <a style="margin: 20px" href="#" class="about-btn custom-btn" onclick="$('#fomulario-registrar').show(); $('#fomulario-login').hide(); $('#formulario-olvido-contrasena').hide(); $('#formulario-correo-confirmacion').hide()">Registrarse</a>
-                    </div>
-                    
-                    <div class="copyright-text">
-                        <p class="m-0"><a target="_blank" href="#" class="yellow-color">ParkingZone</a> © 2021 - Todos los derechos reservados.</p>
-                    </div>
-                </div>
-        
-                <div id="fomulario-login" class="rightside-content text-center" style="height:760px;">
-                    <div class="mb-30">
-                        <h2 class="form-title title-large white-color">Iniciar <strong>Sesión</strong></h2>
-                        <span class="form-subtitle white-color">Ingresa a nuestra plataforma o <strong>¡REGISTRATE!</strong></span>
-                    </div>
-                    <div class="or-text mb-30">
-                        <span>inicia sesión</span>
-                    </div>
-        
-                    <div class="login-form text-center mb-50">
-                        <div class="login-signin">
-            <form class="form" id="formulario-login" method="POST" action="https://www.ciudadtecnopolis.com/login">
-                <input type="hidden" name="_token" value="KwxB9wAgdy4X0W7J8JrUGMbZ3gbciVsgKQLjH2NT">        <div class="form-item">
-                    <input type="email" placeholder="tu-email@gmail.com" name="username">
-                </div>
-                <div class="form-item">
-                    <input type="password" placeholder="Contraseña" name="password">
-                </div>
-                
-                <div class="form-group text-center mt-10">
-                    <button class="login-btn" id="boton-login">Iniciar Sesion</button>
-                </div>
-            </form>
-            
-        
-        </div>            </div>
-                </div>
-        
-                <div id="fomulario-registrar" class="rightside-content text-center" style="display:none;padding: 20px 30px;height:760px;">
-                    <div class="mb-10">
-                        <h2 class="form-title title-large white-color"><strong>Registrarse</strong></h2>
-                    </div>
-                    <div class="login-form text-center mb-20">
-                        <style>
-        .checkmark {
-            height: 25px;
-            width: 25px;
-            background-color: #eee;
-        }
-        </style>
-            <div class="login-signin">
-                <div>
-                                                    </div>
-                <form method="POST" action="https://www.ciudadtecnopolis.com/register" id="formulario_registro">
-                    <input type="hidden" name="_token" value="KwxB9wAgdy4X0W7J8JrUGMbZ3gbciVsgKQLjH2NT">            <div class="form-group">
-                                                    
-                                <input class="chose_person_type btn btn-light" type="button" name="chose_person_type_C" id="chose_person_type_C" app="C" value="Comprador">
-                                    
-                                <input class="chose_person_type btn btn-light" type="button" name="chose_person_type_E" id="chose_person_type_E" app="E" value="Expositor">
-                                                            <input class="chose_person_type btn btn-light" type="button" name="chose_person_type_VI" id="chose_person_type_VI" app="VI" value="Visitante">
-                    </div>
-                    
-                    <div id="form_registro" style="display: none;">
-                        <input type="hidden" name="tipo_usuario" id="tipo_usuario">
-                        <div id="title-person-type"></div>
-                        
-                        
-        
-        
-        
-        
-        
-                        
-        
-        
-        
-        
-        
-        
-                        <!--    -->
-                        <div class="form-item">
-                            <div class="row">
-                                <div class="col-6">
-                                    <input id="nombres" type="text" name="nombres" value="" required="" autofocus="" placeholder="Nombres">
-        
-                                                            </div>
-                                <div class="col-6">
-                                    <input id="apellidos" type="text" name="apellidos" value="" required="" autofocus="" placeholder="Apellidos">
-        
-                                                            </div>
-                            </div>
-                        </div>
-                        <div class="form-item" id="divCodigoRegistro">
-                            <input id="codigoRegistro" type="text" name="codigoRegistro" value="" required="" autofocus="" placeholder="Código Registro">
-        
-                                            </div>
-                                        
-                        <div class="form-item">
-                                <input id="email" type="email" name="email" value="" required="" placeholder="Correo Electrónico">
-        
-                                                </div>
-                                        
-                        <div class="form-item">
-                            <input id="password" type="password" name="password" required="" autocomplete="new-password" placeholder="Contraseña">
-        
-                                                </div>
-        
-                        <div class="form-item">
-                            <input id="password-confirm" type="password" name="password_confirmation" required="" autocomplete="new-password" placeholder="Confirmar Contraseña">   
-                        </div>
-                            <span style=" font-weight: 700;" id="div_info_lengthPwd"></span>
-                            <span style=" font-weight: 700;" id="div_info_lengthNumber"></span>
-                            <span style=" font-weight: 700;" id="div_info_lengthLower"></span>
-                            <span style=" font-weight: 700;" id="div_info_lengthUpper"></span>
-                            <span style=" font-weight: 700;" id="div_info_beforePass"></span>
-                            <span style=" font-weight: 700;" id="div_info_keyWordPass"></span>
-                            <span style=" font-weight: 700;" id="div_info_confirmPass"></span>
-                        <div class="form-item" id="mensaje-validar-cel" style="padding-bottom:5px;">
-                            <span class="text-white">
-                                <b>Sólo podrá registrarse después de haber validado el teléfono celular.</b>
-                            </span>
-                        </div>
-        
-                        <div class="form-item">
-                            <div class="row">
-                                <div class="col-7">
-                                    <input id="celular" type="text" name="celular" required="" placeholder="Número de Celular">   
-                                </div>
-                                <div class="col-4">
-                                    <button type="button" name="btnValidarCelular" id="btnValidarCelular" class="btn btn-light">Validar Celular</button>
-                                </div>
-                                <div class="col-1">
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="form-item">
-                            <input type="hidden" id="idVeriphone" name="idVeriphone" value="">
-                            <input id="codigoVerificacion" type="text" name="codigoVerificacion" required="" placeholder="Código Verificación">   
-                        </div>
-        
-                        <div class="form-item">
-                            <button type="button" class="login-btn" id="boton_registrar" disabled="">
-                                Registrarse
-                            </button>
-                            
-                            <br>
-                            
-                            <span class="text-white">
-                                Al hacer clic en «Registrarse», aceptas las <br>
-                                <a href="#/" data-toggle="modal" data-target="#modalTYC" style="color:cyan !important;">
-                                    Condiciones de uso, la Política de privacidad.
+        <div class="mfp-container mfp-inline-holder">
+            <div class="mfp-content">
+                <div id="loginmodal" class="reglog-modal-wrapper clearfix" style="background-image: url('https://cr00.epimg.net/radio/imagenes/2019/03/28/bogota/1553787583_864116_1553787748_noticia_normal.jpg');height:760px;">
+                    <div class="overlay-black clearfix" style="height:760px;">
+                        <div class="leftside-content">
+                            <div class="site-logo-wrapper mb-80">
+                                <a href="#!" class="logo">
+                                    <img src="../../src/images/Imagen1.png" alt="logo_not_found">
                                 </a>
-                            </span>
+                            </div>
+                            <div class="link-groups">
+                                <a style="margin: 20px" href="#" class="about-btn custom-btn" onclick="$('#fomulario-registrar').hide(); $('#fomulario-login').show(); $('#formulario-olvido-contrasena').hide(); $('#formulario-correo-confirmacion').hide()">Iniciar Sesión</a>
+                                <br>
+                                <a style="margin: 20px" href="#" class="about-btn custom-btn" onclick="$('#fomulario-registrar').show(); $('#fomulario-login').hide(); $('#formulario-olvido-contrasena').hide(); $('#formulario-correo-confirmacion').hide()">Registrarse</a>
+                            </div>
+                            
+                            <div class="copyright-text">
+                                <p class="m-0"><a target="_blank" href="#" class="yellow-color">ParkingZone</a> © 2021 - Todos los derechos reservados.</p>
+                            </div>
                         </div>
-        
-                        <div class="modal fade modalStand" id="modalTYC" tabindex="-1" aria-labelledby="modalTYCLabel" aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="modalTYCLabel">Condiciones de Uso y Política de Privacidad</h5>
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">×</span>
-                                        </button>
-                                    </div>
-                                    <div class="modal-body" style="text-align: left">
-                                        <ol>
-                                            <li> Con la inscripción a esta rueda de negocios virtual , su empresa se compromete a asistir a todas las reuniones de oferta programadas con los prospectos seleccionados y las reuniones de demanda con aquellas empresas que lo seleccionen a usted como prospecto de negocio.</li>
-                                            <li> Recuerde que es muy importante su asistencia, el cumplimiento en horarios y tiempo de las reuniones programadas, por lo que sugerimos que, si se presenta alguna novedad con la persona inicialmente inscrita, considere tener un reemplazo como apoyo para asistir a reuniones. En caso de presentarse, debe notificar tan pronto como sea posible.</li>
-                                            <li> Se garantiza y confirma con cada una de las empresas la programación de todas las reuniones y no se hace responsable en caso que no se pueda llevar a cabo alguna por fallas en su conexión o incumplimiento en el horario y asistencia de otra empresa.</li>
-                                            <li> Como es comprensible, se garantiza la programación de reuniones más no el éxito de las mismas por lo que se permite mencionar que este es un espacio de intercambio de información y networking.</li>
-                                            <li> El suscriptor declara que la información suministrada es veraz, completa, exacta, actualizada y autoriza que sea utilizada para fines de la Rueda de negocios virtual y suministrada a los participantes de este.</li>
-                                        </ol>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Aceptar</button>
-                                    </div>
+                
+                        <div id="fomulario-login" class="rightside-content text-center" style="height:760px;">
+                            <div class="mb-30">
+                                <h2 class="form-title title-large white-color">Iniciar <strong>Sesión</strong></h2>
+                                <span class="form-subtitle white-color">Ingresa a nuestra plataforma o <strong>¡REGISTRATE!</strong></span>
+                            </div>
+                            <div class="or-text mb-30">
+                                <span>inicia sesión</span>
+                            </div>
+                
+                            <div class="login-form text-center mb-50">
+                                <div class="login-signin">
+                                    <form class="form" id="formulario-login" method="POST" action="">
+                                        <input type="hidden" name="_token" value="KwxB9wAgdy4X0W7J8JrUGMbZ3gbciVsgKQLjH2NT">        
+                                        <div class="form-item">
+                                            <input type="email" placeholder="tu-email@gmail.com" name="username">
+                                        </div>
+                                        <div class="form-item">
+                                            <input type="password" placeholder="Contraseña" name="password">
+                                        </div>
+                                        
+                                        <div class="form-group text-center mt-10">
+                                            <button class="login-btn" id="boton-login">Iniciar Sesion</button>
+                                        </div>
+                                    </form> 
                                 </div>
                             </div>
                         </div>
-        
-                    </div>
-                </form>
-            </div>            </div>
-                </div>
-        
-                <div id="formulario-olvido-contrasena" class="rightside-content text-center" style="display:none;height:760px;">
-                    <div class="mb-30">
-                        <h2 class="form-title title-large white-color"><strong>Restablecer Contraseña</strong></h2>
-                    </div>
-                    <div class="login-form text-center mb-50">
-                        <div class="container mb-10">
-        
-            <div>
                 
-                <form method="POST" action="https://www.ciudadtecnopolis.com/password/email" id="formulario_link_restablecimiento">
-                    <input type="hidden" name="_token" value="KwxB9wAgdy4X0W7J8JrUGMbZ3gbciVsgKQLjH2NT">
-                    <div class="form-item row">
-                            <input id="email" type="email" class="form-control inputLogin placeholder-white " name="email" value="" required="" autocomplete="email" autofocus="" placeholder="Correo Electrónico">
-        
-                                            
-                    </div>
-        
-                    <div class="form-item row mb-0">
-                        <button type="submit" class="login-btn" id="boton_link_restablecimiento">
-                            Enviar Link de Restablecimiento
-                        </button>
-                    </div>
-                </form>
-            </div>
-        </div>            </div>
-                </div>
-        
-                <div id="formulario-correo-confirmacion" class="rightside-content text-center" style="display:none;height:760px;">
-                    <div class="mb-30">
-                        <h2 class="form-title title-large white-color"><strong>Reenviar Correo Confirmación</strong></h2>
-                    </div>
-                    <div class="login-form text-center mb-50">
-                        <div class="login-signin">
-                <form method="POST" action="https://www.ciudadtecnopolis.com/EmailValidation" id="formulario_confirmacion">
-                <input type="hidden" name="_token" value="KwxB9wAgdy4X0W7J8JrUGMbZ3gbciVsgKQLjH2NT">        <div id="title-person-type"></div>
-                <div class="form-item">
-                        <input id="email" type="text" class="form-control inputLogin placeholder-white " name="email" value="" required="" autocomplete="email" autofocus="" placeholder="Correo Electrónico">
-        
+                        <div id="fomulario-registrar" class="rightside-content text-center" style="display:none;padding: 20px 30px;height:760px;">
+                            <div class="mb-10">
+                                <h2 class="form-title title-large white-color"><strong>Registrarse</strong></h2>
+                            </div>
+                            <div class="login-form text-center mb-20">
+                                <style>
+                                    .checkmark {
+                                        height: 25px;
+                                        width: 25px;
+                                        background-color: #eee;
+                                    }
+                                </style>
+                            <div class="login-signin">
+                        <form method="POST" action="" id="formulario_registro">           
+                            <div class="form-group">       
+                                <input class="chose_person_type btn btn-light" type="button" name="chose_person_type_C" id="chose_person_type_C" app="C" value="Comprador">
+                                <input class="chose_person_type btn btn-light" type="button" name="chose_person_type_E" id="chose_person_type_E" app="E" value="Expositor">
+                                <input class="chose_person_type btn btn-light" type="button" name="chose_person_type_VI" id="chose_person_type_VI" app="VI" value="Visitante">
+                            </div>
+                            
+                            <div id="form_registro" style="display: none;">
+                                <input type="hidden" name="tipo_usuario" id="tipo_usuario">
+                                <div id="title-person-type"></div>
+                                <div class="form-item">
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <input id="nombres" type="text" name="nombres" value="" required="" autofocus="" placeholder="Nombres">
+                                        </div>
+                                        <div class="col-6">
+                                            <input id="apellidos" type="text" name="apellidos" value="" required="" autofocus="" placeholder="Apellidos">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-item" id="divCodigoRegistro">
+                                    <input id="codigoRegistro" type="text" name="codigoRegistro" value="" required="" autofocus="" placeholder="Código Registro">
+                                </div>
+                                                
+                                <div class="form-item">
+                                        <input id="email" type="email" name="email" value="" required="" placeholder="Correo Electrónico">
+                                </div>
+                                                
+                                <div class="form-item">
+                                    <input id="password" type="password" name="password" required="" autocomplete="new-password" placeholder="Contraseña">
+                                </div>
+                
+                                <div class="form-item">
+                                    <input id="password-confirm" type="password" name="password_confirmation" required="" autocomplete="new-password" placeholder="Confirmar Contraseña">   
+                                </div>
+                                    <span style=" font-weight: 700;" id="div_info_lengthPwd"></span>
+                                    <span style=" font-weight: 700;" id="div_info_lengthNumber"></span>
+                                    <span style=" font-weight: 700;" id="div_info_lengthLower"></span>
+                                    <span style=" font-weight: 700;" id="div_info_lengthUpper"></span>
+                                    <span style=" font-weight: 700;" id="div_info_beforePass"></span>
+                                    <span style=" font-weight: 700;" id="div_info_keyWordPass"></span>
+                                    <span style=" font-weight: 700;" id="div_info_confirmPass"></span>
+                
+                                <div class="form-item">
+                                    <div class="row">
+                                        <div class="col-7">
+                                            <input id="celular" type="text" name="celular" required="" placeholder="Número de Celular">   
+                                        </div>
+                                        <div class="col-4">
+                                            <button type="button" name="btnValidarCelular" id="btnValidarCelular" class="btn btn-light">Validar Celular</button>
+                                        </div>
+                                        <div class="col-1">
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-item">
+                                    <input type="hidden" id="idVeriphone" name="idVeriphone" value="">
+                                    <input id="codigoVerificacion" type="text" name="codigoVerificacion" required="" placeholder="Código Verificación">   
+                                </div>
+                
+                                <div class="form-item">
+                                    <button type="button" class="login-btn" id="boton_registrar" disabled="">
+                                        Registrarse
+                                    </button>
                                     
-                </div>
-                <div class="form-item">
-                    <button type="submit" class="login-btn" id="boton_confirmacion">
-                        Reenviar Correo Confirmación
-                    </button>
-                </div>
-            </form>
-        </div>            </div>
-                </div>
+                                    <br>
+                                    
+                                    <span class="text-white">
+                                        Al hacer clic en «Registrarse», aceptas las <br>
+                                        <a href="#/" data-toggle="modal" data-target="#modalTYC" style="color:cyan !important;">
+                                            Condiciones de uso, la Política de privacidad.
+                                        </a>
+                                    </span>
+                                </div>
                 
-        
+                                <div class="modal fade modalStand" id="modalTYC" tabindex="-1" aria-labelledby="modalTYCLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="modalTYCLabel">Condiciones de Uso y Política de Privacidad</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">×</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body" style="text-align: left">
+                                                HABEAS DATA
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Aceptar</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                
+                            </div>
+                        </form>
+                    </div>            
+                </div>
+            </div>
                 <a class="popup-modal-dismiss" href="#!">
                     <i class="fas fa-times"></i>
                 </a>
