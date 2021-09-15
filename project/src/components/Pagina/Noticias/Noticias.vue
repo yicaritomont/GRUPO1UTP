@@ -1,0 +1,72 @@
+<template>
+  <div id="Noticias">
+    <div class="text-center"><h1>NOTICIAS</h1></div>
+    <div class="row row-cols-1 row-cols-md-2 g-4">
+      <div class="col">
+          <div class="card">
+              <img id="noticias_image_1" src="../../../../../src/images/not_5.jpg" class="card-img-top" alt="...">
+              <div class="card-body">
+                  <h5 class="card-title">Finalizan obras <i class="fas fa-car-side"></i></h5>
+                  <p class="card-text">La ANSV y ENterritorio finalizan obras de alto impacto en Buga con una inversión de más de 150 millones de pesos.</p>
+                  <button class="btn btn-primary" onclick="goTo('secciones/noticias/noticia_1.html')">Leer más ...</button>
+              </div>
+          </div>
+      </div>
+      <div class="col">
+          <div class="card">
+              <img id="noticias_image_2" src="../../../../../src/images/not_3.jpg" class="card-img-top" alt="...">
+              <div class="card-body">
+                  <h5 class="card-title">Nueva Malla Vial <i class="fas fa-truck"></i></h5>
+                  <p class="card-text">Arranca la fase de preconstrucción de la Nueva Malla Vial del Valle del Cauca- Corredor Accesos Cali. </p>
+                  <button class="btn btn-primary" onclick="goTo('secciones/noticias/noticia_2.html')">Leer más ...</button>
+              </div>
+          </div>
+      </div>
+      <div class="col">
+          <div class="card">
+              <img id="noticias_image_3" src="../../../../../src/images/not_1.jpg" class="card-img-top" alt="...">
+              <div class="card-body">
+                  <h5 class="card-title">Emergencia vial <i class="fas fa-bus-alt"></i></h5>
+                  <p class="card-text">Gobierno nacional atiende emergencia vial en el km 121+200 de la vía Los Curos - Málaga, departamento de Santander.</p>
+                  <button class="btn btn-primary" onclick="goTo('secciones/noticias/noticia_3.html')">Leer más ...</button>
+              </div>
+          </div>
+      </div>
+      <div class="col">
+          <div class="card">
+              <img id="noticias_image_4" src="../../../../../src/images/not_2.jpg" class="card-img-top" alt="">
+              <div class="card-body">
+                  <h5 class="card-title">Licencia de conducción <i class="fas fa-car-crash"></i></h5>
+                  <p class="card-text">Tras resultados de estudios de la Universidad de los Andes, Gobierno avanza en reglamentación de licencia de conducción para la comunidad sord.</p>
+                  <button class="btn btn-primary" onclick="goTo('secciones/noticias/noticia_4.html')">Leer más ...</button>
+              </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+  export default {
+    name: 'Noticias',
+    props: {}
+  }
+</script>
+
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped>
+h3 {
+  margin: 40px 0 0;
+}
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+li {
+  display: inline-block;
+  margin: 0 10px;
+}
+a {
+  color: #42b983;
+}
+</style>
