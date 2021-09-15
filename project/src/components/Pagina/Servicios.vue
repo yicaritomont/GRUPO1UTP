@@ -1,0 +1,60 @@
+<template>
+    <div id="Servicios">
+        <h1>SERVICIOS</h1>
+        <div class="row">
+            <div class="col-12">
+                <div class="card-group">
+                    <div class="card">
+                    <img src="../../../../src/images/car-parking.jpg">
+                    <div class="card-body">
+                        <h5 class="card-title">Reserva tu espacio</h5>
+                        <p class="card-text">En ParkingZone es la forma más rápida, segura y sencilla de encontrar un espacio para tu vehículo, en las ciudades más cogestionadas del país.</p>
+                        <p class="card-text"><small class="text-muted">ParkingZone tu lugar mas seguro</small></p>
+                    </div>
+                    </div>
+                    <div class="card">
+                    <img id="servicios_image_2" src="../../../../src/images/publica.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Publica tu parking</h5>
+                        <p class="card-text">Publicar gratis tu parquederoy encuentra clientes rápidamente.</p>
+                        <p class="card-text"><small class="text-muted">ParkingZone Donde encuentras a tus clientes</small></p>
+                    </div>
+                    </div>
+                    <div class="card">
+                        <img id="servicios_image_3" src="../../../../src/images/Lavado.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Lavado de vehículos</h5>
+                            <p class="card-text">Servicio de lavado de autos mienrtas tu carro esta estacionado en nuestros parquiaderos, tu carro limpio por dentro y por fuera. Con un lavado ecológico.</p>
+                            <p class="card-text"><small class="text-muted">Disponible en algunos de nuestros parqueaderos</small></p>
+                        </div>
+                    </div>
+                </div>  
+            </div>      
+        </div>
+    </div>
+</template>
+
+<script>
+  export default {
+    name: 'Servicios',
+    props: {}
+  }
+</script>
+
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped>
+h3 {
+  margin: 40px 0 0;
+}
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+li {
+  display: inline-block;
+  margin: 0 10px;
+}
+a {
+  color: #42b983;
+}
+</style>
