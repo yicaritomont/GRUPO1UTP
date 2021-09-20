@@ -12,12 +12,13 @@
   </div>
   <div id="navbar" class="navbar-menu">
     <div class="navbar-start">
-      <router-link to="/" class="navbar-item">Inicio</router-link>
       <a href="/#Servicios" class="navbar-item">Servicios</a>
       <a href="/#Noticias" class="navbar-item">Noticias</a>
       <a href="/#Equipo" class="navbar-item">Equipo</a>
       <router-link to="/about" class="navbar-item">Detalles</router-link>
-      <router-link to="/login" class="navbar-item">Login TEST</router-link>
+      <router-link to="/login" class="navbar-item">Ingresar</router-link>
+      <router-link to="/editC" class="navbar-item">Edit C</router-link>
+      <router-link to="/editP" class="navbar-item">Edit P</router-link>
     </div>
     <div class="navbar-end">
       <div class="navbar-item">

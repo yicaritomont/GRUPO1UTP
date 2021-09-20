@@ -30,6 +30,21 @@ export default new Router({
       component: () => import('../views/LoginForm.vue')
     },
     {
+      path: '/register',
+      name: 'registerForm',
+      component: () => import('../views/RegisterForm.vue')
+    },
+    {
+      path: '/editC',
+      name: 'editClientForm',
+      component: () => import('../views/EditClientForm.vue')
+    },
+    {
+      path: '/editP',
+      name: 'editParkForm',
+      component: () => import('../views/EditParkForm.vue')
+    },
+    {
       path: '/acc',
       name: 'acc',
       component: () => import('../views/EventSingle.vue'),

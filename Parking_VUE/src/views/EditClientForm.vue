@@ -5,32 +5,38 @@
       <div class="row justify-content-center">
         <div class="col-md-12 col-lg-10">
           <div class="wrap d-md-flex">
-            <div class="text-wrap p-4 p-lg-5 text-center d-flex align-items-center order-md-last lateral">
-              <div class="text w-100 pt-50" style="margin-top: 95%;">
-                <div class="d-md-flex">
-                  <p style="color:black;margin-left: 21px;"><b> ¿No tienes una cuenta?</b></p>
-                  <a href="/register" class="button is-dark" style="height: 27px;border-radius: 50px;margin-left: 22px;">Registrate</a>
-                </div>
-
-              </div>
-            </div>
             <div class="login-wrap p-4 p-lg-5">
               <div class="d-flex">
                 <div class="w-100" style="margin-bottom: 6%; margin-top: 10%;">
-                  <h1><strong style="font-size: 35px;">Iniciar Sesión</strong></h1>
+                  <h1><strong style="font-size: 35px;">Editar Cliente</strong></h1>
                 </div>
               </div>
               <form class="signin-form" method="POST">
                 <div class="form-group mb-3">
-                  <label class="label" for="name">Correo Electrónico</label>
-                  <input type="text" class="form-control" name="email" placeholder="Correo Electrónico" required="">
+                  <label class="label" for="name">Nombres</label>
+                  <input type="text" class="form-control" name="name" placeholder="Nombre" required="">
                 </div>
                 <div class="form-group mb-3">
-                  <label class="label" for="password">Contraseña</label>
-                  <input type="password" class="form-control" name="password" placeholder="Contraseña" required="">
+                  <label class="label" for="name">Apellidos</label>
+                  <input type="text" class="form-control" name="lastname" placeholder="Apellidos" required="">
+                </div>
+                <div class="form-group mb-3">
+                  <label class="label" for="name">Número Documento</label>
+                  <input type="text" class="form-control" name="doc" placeholder="Numero documento">
+                </div>
+                <div class="form-group mb-3">
+                  <label class="label" for="password">Ciudad</label>
+                  <select class="form-control" required="">
+                      <option value="">Seleccione..</option>
+                      <option value="CP">Ciudad Piloto</option>
+                  </select>
+                </div>
+                <div class="form-group mb-3">
+                  <label class="label" for="name">Número de Celular</label>
+                  <input type="text" class="form-control" name="cel" placeholder="Numero de celular">
                 </div>
                 <div class="form-group">
-                  <button type="submit" class="form-control px-3 button is-dark" @click="logintTest">Ingresar</button>
+                  <button type="submit" class="form-control px-3 button is-dark" @click="actualizarCliente">Actualizar</button>
                 </div>
               </form>
             </div>
@@ -41,6 +47,13 @@
   </section>
 </template>
 <style lang="scss" scoped>
+  .radio{
+    height: 20px;
+    width: 20px;
+    border-radius: 100%;
+    left: 10px;
+     border:2px solid rgba(0,0,0,0.2);
+  }
   .org-description {
     margin-top: 50px;
   }
@@ -77,7 +90,7 @@
       height:500px;
   }
   .text-wrap, .login-wrap {
-      width: 50%;
+      width: 100%;
   }
   .text-center {
       text-align: center !important;
@@ -120,7 +133,7 @@
       }
     },
     methods: {
-      logintTest(e){
+      actualizarCliente(e){
         e.preventDefault();
         alert("nananana");
         /*var request = require("request");
