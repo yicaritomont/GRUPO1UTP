@@ -29,7 +29,7 @@ export default {
             "La ANSV y ENterritorio finalizan obras de alto impacto en Buga con una inversión de más de 150 millones de pesos.",
           description:
             "La ANSV y ENterritorio finalizan obras de alto impacto en Buga con una inversión de más de 150 millones de pesos.",
-          featuredImage: "https://placekitten.com/500/500",
+          featuredImage: "not_1.jpg",
         },
         {
           id: 2,
@@ -39,7 +39,7 @@ export default {
             "Arranca la fase de preconstrucción de la Nueva Malla Vial del Valle del Cauca- Corredor Accesos Cali.",
           description:
             "Arranca la fase de preconstrucción de la Nueva Malla Vial del Valle del Cauca- Corredor Accesos Cali.",
-          featuredImage: "https://placekitten.com/500/500",
+          featuredImage: "not_2.jpg",
         },
         {
           id: 3,
@@ -49,7 +49,7 @@ export default {
             "Gobierno nacional atiende emergencia vial en el km 121+200 de la vía Los Curos - Málaga, departamento de Santander.",
           description:
             "Gobierno nacional atiende emergencia vial en el km 121+200 de la vía Los Curos - Málaga, departamento de Santander.",
-          featuredImage: "https://placekitten.com/500/500",
+          featuredImage: "not_3.jpg",
         },
         {
           id: 4,
@@ -59,7 +59,7 @@ export default {
             "Tras resultados de estudios de la Universidad de los Andes, Gobierno avanza en reglamentación de licencia de conducción para la comunidad sord.",
           description:
             "Tras resultados de estudios de la Universidad de los Andes, Gobierno avanza en reglamentación de licencia de conducción para la comunidad sord.",
-          featuredImage: "https://placekitten.com/500/500",
+          featuredImage: "not_5.jpg",
         }
       ]
     };

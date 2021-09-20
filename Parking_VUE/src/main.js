@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
+import VueCarousel from 'vue-carousel'
 import './../node_modules/bulma/css/bulma.css';
 
 // Import the Auth0 configuration
@@ -21,6 +22,7 @@ Vue.use(Auth0Plugin, {
     );
   }
 });
+Vue.use(VueCarousel);
 
 Vue.config.productionTip = false
 

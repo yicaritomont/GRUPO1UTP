@@ -24,29 +24,29 @@ export default {
           name: "Carolina Montes",
           category: "Equipo",
           theme: "Tripulante Misioón TIC 2021",
-          featuredImage: "banner_1.jpeg",
+          featuredImage: "Chica1.png",
         },
         {
           id: 2,
            name: "Heysel Arnedo",
           category: "Equipo",
           theme: "Tripulante Misioón TIC 2021",
-          featuredImage: "banner_1.jpeg",
-         
+          featuredImage: "chico1.png",
+
         },
         {
           id: 3,
           name: "Frank Chico",
           category: "Equipo",
           theme: "Tripulante Misioón TIC 2021",
-          featuredImage: "banner_1.jpeg",
+          featuredImage: "chico2.png",
         },
         {
           id: 4,
            name: "Juan Robayo",
           category: "Equipo",
           theme: "Tripulante Misioón TIC 2021",
-          featuredImage: "banner_1.jpeg",
+          featuredImage: "chico3.png",
         }
       ]
     };

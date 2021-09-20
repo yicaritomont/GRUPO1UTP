@@ -1,14 +1,14 @@
 <template>
   <div class="event-card">
     <div class="card">
+
       <div class="card-content">
-        <h2 class="is-size-4 has-text-weight-bold">{{ service.name }}</h2>
         <small class="event-date">{{ service.category }}</small>
+        <img v-bind:src="require('../assets/' + service.featuredImage)" alt="servicio" />
       </div>
     </div>
     <div style="height: 100px;">
       <hr>
-      <h2 class="is-size-4 has-text-weight-bold">{{ service.name }}</h2>
       <p>{{ service.description }}</p>
       <small>{{ service.theme }}</small>
       <hr>

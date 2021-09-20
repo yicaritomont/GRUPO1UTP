@@ -26,7 +26,7 @@ export default {
           description:
             "En ParkingZone es la forma más rápida, segura y sencilla de encontrar un espacio para tu vehículo, en las ciudades más cogestionadas del país.",
           theme: "ParkingZone tu lugar mas seguro.",
-          featuredImage: "banner_1.jpeg",
+          featuredImage: "servicio-1.png",
         },
         {
           id: 2,
@@ -35,8 +35,8 @@ export default {
           description:
             "Publicar gratis tu parquedero y encuentra clientes rápidamente. Puedes ofrecer los servicios adicionales que tengas en tu parqueadero",
           theme: "ParkingZone Donde encuentras a tus clientes.",
-          featuredImage: "banner_1.jpeg",
-         
+          featuredImage: "servicio-2.png",
+
         },
         {
           id: 3,
@@ -45,7 +45,7 @@ export default {
           description:
             "Servicio de lavado de autos mienrtas tu carro esta estacionado en nuestros parquiaderos, tu carro limpio por dentro y por fuera. Con un lavado ecológico.",
           theme: "Disponible en algunos de nuestros parqueaderos.",
-          featuredImage: "banner_1.jpeg",
+          featuredImage: "servicio-3.png",
         }
       ]
     };

@@ -4,6 +4,7 @@
       <div class="card-content">
         <h2 class="is-size-4 has-text-weight-bold">{{ team.name }}</h2>
         <small class="event-date">{{ team.category }}</small>
+        <img v-bind:src="require('../assets/' + team.featuredImage)" alt="Equipo"/>
       </div>
     </div>
     <div style="height: 100px;">
@@ -31,7 +32,7 @@ export default {
   padding-top: 50px;
   position: absolute;
   color: #fff;
-  background-color: rgba(0, 0, 0, 0.35);
+  background-color: rgb(210 10 17);
   top: 0;
   padding: 10px;
   height: 200px;

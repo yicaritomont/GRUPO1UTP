@@ -1,11 +1,12 @@
 <template>
   <div>
+    <footer>
     <div class="row">
     <div class="col-6">
         <div class="accordion" id="accordionExample">
             <div class="accordion-item">
                 <h2 class="accordion-header" id="headingOne">
-                    <button class="accordion-button" type="button"  aria-expanded="true" aria-controls="collapseOne">
+                    <button class="accordion-button" type="button"  aria-expanded="true">
                     Información de sitio
                     </button>
                 </h2>
@@ -13,14 +14,14 @@
                     <div class="accordion-body">
                         <p>Este proyecto permitirá fortalecer nuestro conocimiento, para aplicarlo en el ámbito empresarial.</p>
                         <p>El eje central del proyecto en la localización de parqueaderos disponibles en una determinada zona, con la finalidad
-                            de separarlo. 
+                            de separarlo.
                         </p>
                     </div>
                 </div>
             </div>
             <div class="accordion-item">
                 <h2 class="accordion-header" id="headingTwo">
-                    <button class="accordion-button" type="button" aria-expanded="true">                        
+                    <button class="accordion-button" type="button" aria-expanded="true">
                         <a href="https://github.com/yicaritomont/GRUPO1UTP"><i class="bi-github" role="img" aria-label="GitHub"></i>Nuestro Repositorio GIT HUB </a>
                     </button>
                 </h2>
@@ -36,10 +37,10 @@
                             <li class="list-group-item d-flex justify-content-between align-items-start">
                                 <div class="ms-2 me-auto">
                                     <div class="fw-bold">
-                                        Carolina  Montes 
+                                        Carolina  Montes
                                         <span class="badge bg-primary rounded-pill">Analista de Software </span>
                                     </div>
-                                </div>                              
+                                </div>
                                 <a href="https://www.linkedin.com/in/ycarolinamontes/" target="_blank"><i class="bi bi-linkedin" style="font-size: 1.5rem;"></i></a>
                             </li>
                             <li class="list-group-item d-flex justify-content-between align-items-start">
@@ -79,24 +80,26 @@
                                 <a href="#" target="_blank"><i class="bi bi-linkedin" style="font-size: 1.5rem;"></i></a>
                             </li>
                         </ol>
-                        
+
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
 </div>
 <hr>
 <div class="row col-12">
     <p class="col-6 mb-0 text-muted">© 2021 Company, Inc</p>
-    
+
     <ul class="nav col-6 justify-content-end">
         <li class="nav-item"><a class="nav-link px-2 text-muted"  href="index.html"><b>Inicio</b></a></li>
         <li class="nav-item"><a class="nav-link px-2 text-muted"  href="#Servicios"><b>Servicios</b></a></li>
-        <li class="nav-item"><a class="nav-link px-2 text-muted" href="#Noticias"><b>Noticias</b></a></li> 
-        <li class="nav-item"><a class="nav-link px-2 text-muted" href="#Equipo"><b>Equipo</b></a></li>    
+        <li class="nav-item"><a class="nav-link px-2 text-muted" href="#Noticias"><b>Noticias</b></a></li>
+        <li class="nav-item"><a class="nav-link px-2 text-muted" href="#Equipo"><b>Equipo</b></a></li>
     </ul>
 </div>
+</footer>
   </div>
 </template>
 

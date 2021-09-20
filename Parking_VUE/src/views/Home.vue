@@ -1,21 +1,17 @@
 <template>
 <div class="home">
-  <section class="hero is-dark">
-    <div class="hero-body">
-      <div class="container">
-        <h1 class="title">
-          Reserva tú espacio    
-        </h1>
-        <h2 class="subtitle">
-          La forma más rápida, segura y sencilla de encontrar un espacio para tu vehículo.
-        </h2>
-        <div class="button-block">
-          <button v-if="!$auth.isAuthenticated" @click="login" class="button is-xl is-dark">Iniciar Sesión</button>
-          <p v-if="$auth.isAuthenticated" class="is-size-5 has-background-dark welcome">Hola!, {{ $auth.user.name }}!</p>
-        </div>
-      </div>
-    </div>
-  </section>
+  <carousel>
+    <slide>
+      <img :src="imagen1" alt="Fácil y seguro Mr. Parking" />
+    </slide>
+    <slide>
+      <img :src="imagen2" alt="Fácil y seguro Mr. Parking" />
+    </slide>
+    <slide>
+      <img :src="imagen3" alt="Fácil y seguro Mr. Parking" />
+    </slide>
+  </carousel>
+
   <div id="Servicios">
     <ServiceList />
   </div>
@@ -33,6 +29,10 @@ import EventsList from '../components/EventsList';
 import ServiceList from '../components/ServiceList';
 import TeamList from '../components/TeamList';
 import Footer from '../components/Footer.vue';
+import {Carousel, Slide} from 'vue-carousel';
+import imagen1 from '../assets/banner1.jpg'
+import imagen2 from '../assets/BANNER2.png'
+import imagen3 from '../assets/BANNER-3.png'
 export default {
   name: 'home',
   components: {
@@ -40,17 +40,26 @@ export default {
     ServiceList,
     TeamList,
     Footer,
+    Carousel,
+    Slide,
   },
   methods: {
     // Log the user in
     login() {
       this.$auth.loginWithRedirect();
     }
+  },
+  data: function(){
+    return{
+      imagen1 : imagen1,
+      imagen2 : imagen2,
+      imagen3 : imagen3
+    }
   }
 }
 </script>
 <style lang="scss" scoped>
-  .hero {    
+  .hero {
     text-align: center;
     background-image: url('https://cr00.epimg.net/radio/imagenes/2019/03/28/bogota/1553787583_864116_1553787748_noticia_normal.jpg');
     background-size: cover;
