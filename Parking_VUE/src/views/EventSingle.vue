@@ -1,26 +1,26 @@
 <template>
-  <div class="event-single">
-    <section class="hero is-primary">
-      <div class="hero-body">
-        <div class="container">
-          <h1 class="title">{{ event.name }}</h1>
+  <div>
+    <div class="card text-center" style="margin: 5% 5% 5% 5%;">
+        <div class="hero is-danger">
+            <h1>Noticia</h1>
         </div>
-      </div>
-    </section>
-    <section class="event-content">
-      <div class="container">
-        <p class="is-size-4 description">{{ event.description }}</p>
-        <p class="is-size-5">
-          <strong>Category:</strong>
-          {{ event.category }}
+        <div class="card-body">
+            <h2 class="card-title title"><b>{{ event.name }}</b></h2>
+            <carousel >
+              <slide v-for="image in event.images" :key="image.id">
+                <img v-bind:src="require('../assets/' + image)" alt="Noticia"/>
+              </slide>
+            </carousel>
+        </div>
+        <p class="card-text" style="text-align: justify; padding: 5% 5% 5% 5%;">
+        {{ event.description }}
         </p>
-        <div class="event-images columns is-multiline has-text-centered">
-          <div v-for="image in event.images" :key="image.id" class="column is-one-third">
-            <img :src="`${image}`" :alt="`${event.name}`" />
-          </div>
-        </div>
-      </div>
-    </section>
+        <router-link to="/" class="button is-dark">Regresar Inicio</router-link>
+    </div>
+    <div class="card-footer text-muted" style="text-align: center;">
+        2 days ago
+    </div>
+
   </div>
 </template>
 <script>
@@ -42,11 +42,11 @@ export default {
             "“Con la implementación del programa PGO se fortalece la seguridad vial en los territorios con la priorización de zonas escolares en donde, 32 de las 80 intervenciones de la fase II, están dirigidas a la regulación de la velocidad en el país. En este sentido, con la obra ejecutada en el municipio de Guadalajara de Buga se beneficiará a cerca de 1.900 estudiantes”, agregó Luis Lota, director de la ANSV."+
             "Para la tercera fase del Programa Pequeñas Grandes Obras se avanza en la elaboración de más de 550 diseños en zonas que se han identificado como de alta siniestralidad. Para el valle del Cauca serán 12 los municipios a los cuales se les desarrollarán diseños para la implementación de este programa (Ansermanuevo, Buenaventura, Cali, Cartago, Dagua, Guadalajara de Buga, La Cumbre, La Unión, Palmira, Restrepo, Yumbo y Zarzal)."+
             "fuente: https://www.mintransporte.gov.co/",
-          featuredImage: "https://placekitten.com/500/500",
+          featuredImage: "not_1.jpg",
           images: [
-            "https://placekitten.com/500/500",
-            "https://placekitten.com/500/500",
-            "https://placekitten.com/500/500"
+            "not_1.jpg",
+            "not_1.jpg",
+            "not_1.jpg",
           ],
         },
         {
@@ -69,16 +69,16 @@ export default {
             "Con esta iniciativa se estima serán beneficiados cerca de 3.300.000 habitantes de 12 municipios del Valle del Cauca, entre ellos: Buga, Candelaria, El Cerrito, Florida, Guacarí, Ginebra, Jamundí, Palmira, Vijes, Yotoco, Yumbo y Cali, al igual que cinco municipios del Cauca: Caloto, Miranda, Puerto Tejada, Santander de Quilichao y Villarica"+
             "Con las oncesiones del Bicentenario, uno de nuestros principales retos del Gobierno nacional es fortalecer la institucionalidad de la Agencia Nacional de Infraestructura para mejorar los procesos, la transparencia, la integridad de la Entidad y recuperar la confianza de los ciudadanos, pero además garantizar el desarrollo sostenible e inclusivo de los proyectos en todas las regiones del país."+
             "fuente: fuente: https://www.mintransporte.gov.co/",
-          featuredImage: "https://placekitten.com/500/500",
+          featuredImage: "not_2.jpg",
           images: [
-            "https://placekitten.com/500/500",
-            "https://placekitten.com/500/500",
-            "https://placekitten.com/500/500"
+            "not_2.jpg",
+            "not_2.jpg",
+            "not_2.jpg"
           ],
         },
         {
           id: 3,
-          name: "Emergendsfsdfsxdcia Vial",
+          name: "Emergencia Vial",
           category: "Noticias",
           theme:
             "Gobierno nacional atiende emergencia vial en el km 121+200 de la vía Los Curos - Málaga, departamento de Santander.",
@@ -87,11 +87,11 @@ export default {
             "La ministra (e) de Transporte, Carmen Ligia Valderrama aseguró: “Nuestro compromiso como Gobierno nacional siempre es velar por la movilidad segura de los usuarios en nuestras vías, por esto a través del INVÍAS hemos dispuesto de todos los recursos para recuperar la movilidad por este importante corredor vial en el menor tiempo po"+
             "El director técnico del INVÍAS, Guillermo Toro Acuña, manifestó: “Desde el momento en que se registró la emergencia en el km 121+200 de la vía, técnicos y operarios del INVÍAS trabajan con maquinaria (retroexcavadoras y volquetas) para recuperar la transitabilidad por este importante corredor vial. Debido a la emergencia, la vía se encuentra cerrada y recomendamos a los usuarios tomar la vía alterna Málaga - Presidente - Pamplona - Bucaramanga”.",
 
-          featuredImage: "https://placekitten.com/500/500",
+          featuredImage: "not_3.jpg",
           images: [
-            "https://placekitten.com/500/500",
-            "https://placekitten.com/500/500",
-            "https://placekitten.com/500/500"
+            "not_3.jpg",
+            "not_3.jpg",
+            "not_3.jpg"
           ],
         },
         {
@@ -107,11 +107,11 @@ export default {
              "Entre las conclusiones, la Universidad de los Andes, realizó un análisis de perfiles de riesgo . Gracias a estos resultados, se decidió iniciar la construcción, de manera conjunta, de   un plan de acción y explorar la normativa necesaria para reglamentar la licencia de conducción de transporte privado a la comunidad sorda, todo esto cumpliendo con los requisitos necesarios que garanticen la seguridad para todos los actores viales."+
              "La decimo segunda mesa técnica se llevó a cabo con la participación del Director de la Agencia Nacional de Seguridad Vial, Luis Lota; Fabio Restrepo, director de Tránsito y Transporte del Ministerio de Transporte; Olga Lucía Sarmiento, Mónica Pinilla y Luis Guzmán de Universidad de los Andes; Natalia Martínez del INSOR; Daniel Ocampo, Erika Melgarejo, Nathalia Ardila de la comunidad sorda y el líder promotor Henry Mejía, así como representantes regionales de las agremiaciones de la comunidad sorda y FENASCOL, entre otros participantes."+
              "“Este trabajo nos lo hemos tomado con mucha seriedad, por eso estamos viendo avances efectivos en este sentido. Un trabajo que desarrollamos paso a paso y que lo hemos hecho de manera conjunta. Es importante seguir este proceso bajo esta metodología: que nos garantice que estemos todos cubiertos y que la comunidad sorda tenga la claridad de cómo pueden acceder a la licencia para transporte privado y contar con todos los elementos necesarios para tal fin. Reiteramos nuestro compromiso desde ANSV y el Ministerio de Transporte por garantizar los derechos con reglas claras y transparentes, y con un cronograma de trabajo conjunto que respete los tiempos”, puntualizó Luis Lota, director de la ANSV.   ",
-          featuredImage: "https://placekitten.com/500/500",
+          featuredImage: "not_5.jpg",
           images: [
-            "https://placekitten.com/500/500",
-            "https://placekitten.com/500/500",
-            "https://placekitten.com/500/500"
+            "not_5.jpg",
+            "not_5.jpg",
+            "not_5.jpg"
           ],
         }
       ],

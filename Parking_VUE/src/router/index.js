@@ -22,6 +22,11 @@ export default new Router({
     {
       path: '/event/:id',
       name: 'eventSingle',
+      component: () => import('../views/EventSingle.vue')
+    },
+    {
+      path: '/regis',
+      name: 'eventSingle',
       component: () => import('../views/EventSingle.vue'),
       beforeEnter: authGuard
     }

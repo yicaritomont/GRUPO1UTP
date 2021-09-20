@@ -2,7 +2,7 @@
 <nav class="navbar container" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
     <a class="navbar-item" href="/">
-      <strong class="is-size-4">Parking</strong>
+      <img src="../../assets/logo-para-el-banner.png">
     </a>
     <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
       <span aria-hidden="true"></span>
@@ -12,7 +12,7 @@
   </div>
   <div id="navbar" class="navbar-menu">
     <div class="navbar-start">
-      <router-link to="/" class="navbar-item">Home</router-link>
+      <router-link to="/" class="navbar-item">Inicio</router-link>
       <a href="#Servicios" class="navbar-item">Servicios</a>
       <a href="#Noticias" class="navbar-item">Noticias</a>
       <a href="#Equipo" class="navbar-item">Equipo</a>
@@ -59,8 +59,8 @@ export default {
       font-weight: bold;
       color: #2c3e50;
       &.router-link-exact-active {
-        color: #d88d00;
+        color: #D71920;
       }
-    }  
-  } 
+    }
+  }
 </style>
