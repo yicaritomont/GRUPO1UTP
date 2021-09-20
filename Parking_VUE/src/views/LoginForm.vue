@@ -16,7 +16,7 @@
             </div>
             <div class="login-wrap p-4 p-lg-5">
               <div class="d-flex">
-                <div class="w-100" style="margin-bottom: 6%;">
+                <div class="w-100" style="margin-bottom: 6%; margin-top: 10%;">
                   <h1><strong style="font-size: 35px;">Iniciar Sesión</strong></h1>
                 </div>
               </div>
@@ -46,7 +46,7 @@
   }
   .lateral{
     background-image : url('../assets/logo-horizontal.png') !important;
-    height: 200px;
+    height: 150px;
     background-position: center;
     background-size: cover;
     text-align: center;
@@ -74,7 +74,7 @@
   }
   .text-wrap {
       color: #fff;
-      height:400px;
+      height:500px;
   }
   .text-wrap, .login-wrap {
       width: 50%;
