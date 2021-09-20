@@ -13,10 +13,11 @@
   <div id="navbar" class="navbar-menu">
     <div class="navbar-start">
       <router-link to="/" class="navbar-item">Inicio</router-link>
-      <a href="#Servicios" class="navbar-item">Servicios</a>
-      <a href="#Noticias" class="navbar-item">Noticias</a>
-      <a href="#Equipo" class="navbar-item">Equipo</a>
+      <a href="/#Servicios" class="navbar-item">Servicios</a>
+      <a href="/#Noticias" class="navbar-item">Noticias</a>
+      <a href="/#Equipo" class="navbar-item">Equipo</a>
       <router-link to="/about" class="navbar-item">Detalles</router-link>
+      <router-link to="/login" class="navbar-item">Login TEST</router-link>
     </div>
     <div class="navbar-end">
       <div class="navbar-item">
@@ -61,6 +62,10 @@ export default {
       &.router-link-exact-active {
         color: #D71920;
       }
+    }
+    .button{
+      border-radius:50px;
+      background-color:#D71920;
     }
   }
 </style>
