@@ -1,45 +1,20 @@
-/* eslint-disable no-undef */
 <template>
   <section class="ftco-section">
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-md-12 col-lg-10">
           <div class="wrap d-md-flex">
-            <div class="login-wrap p-4 p-lg-5">
-              <div class="d-flex">
-                <div class="w-100" style="margin-bottom: 6%; margin-top: 10%;">
-                  <h1><strong style="font-size: 35px;">Editar Cliente</strong></h1>
-                </div>
-              </div>
-              <form class="signin-form" method="POST">
-                <div class="form-group mb-3">
-                  <label class="label" for="name">Nombres</label>
-                  <input type="text" class="form-control" name="name" placeholder="Nombre" required="">
-                </div>
-                <div class="form-group mb-3">
-                  <label class="label" for="name">Apellidos</label>
-                  <input type="text" class="form-control" name="lastname" placeholder="Apellidos" required="">
-                </div>
-                <div class="form-group mb-3">
-                  <label class="label" for="name">Número Documento</label>
-                  <input type="text" class="form-control" name="doc" placeholder="Numero documento">
-                </div>
-                <div class="form-group mb-3">
+              <div class="container flex">
+                  <div class="form-group mb-3">
                   <label class="label" for="password">Ciudad</label>
                   <select v-model="ciudadSeleccionada" class="form-control" id="ciudad" required="">
-                      <option>Seleccione...</option>
+                      <option value="0">Seleccione..</option>
                       <option v-for="ciudad in ciudades" :key="ciudad.id" :value="ciudad.id">{{ciudad.ciudad}}</option>
                   </select>
                 </div>
-                <div class="form-group mb-3">
-                  <label class="label" for="name">Número de Celular</label>
-                  <input type="text" class="form-control" name="cel" placeholder="Numero de celular">
-                </div>
-                <div class="form-group">
-                  <button type="submit" class="form-control px-3 button is-dark" @click="actualizarCliente">Actualizar</button>
-                </div>
-              </form>
-            </div>
+              </div>
+            <div class="text-wrap p-4 p-lg-5 text-center d-flex align-items-center order-md-last lateral" style="margin-top: 5%;"></div>
+            
           </div>
         </div>
       </div>
@@ -90,7 +65,7 @@
       height:500px;
   }
   .text-wrap, .login-wrap {
-      width: 100%;
+      width: 50%;
   }
   .text-center {
       text-align: center !important;
@@ -137,11 +112,11 @@
       return {
         info:null,
         ciudadSeleccionada : {},
-        ciudades: ciudades,
+        ciudades: ciudades
       }
     },
     methods: {
-      actualizarCliente(e){
+      registerTest(e){
         e.preventDefault();
         alert("nananana");
         /*var request = require("request");

@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 <template>
   <section class="ftco-section">
     <div class="container">

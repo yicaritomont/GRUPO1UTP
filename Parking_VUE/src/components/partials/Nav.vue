@@ -19,6 +19,8 @@
       <router-link to="/login" class="navbar-item">Ingresar</router-link>
       <router-link to="/editC" class="navbar-item">Edit C</router-link>
       <router-link to="/editP" class="navbar-item">Edit P</router-link>
+      <router-link to="/busqueda" class="navbar-item">Buscar Parqueaderos</router-link>
+
     </div>
     <div class="navbar-end">
       <div class="navbar-item">

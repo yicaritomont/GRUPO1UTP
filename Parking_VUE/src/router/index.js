@@ -45,6 +45,11 @@ export default new Router({
       component: () => import('../views/EditParkForm.vue')
     },
     {
+      path: '/busqueda',
+      name: 'searchParkForm',
+      component: () => import('../views/SearchParkForm.vue')
+    },
+    {
       path: '/acc',
       name: 'acc',
       component: () => import('../views/EventSingle.vue'),
