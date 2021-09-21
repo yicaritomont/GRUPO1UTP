@@ -4,7 +4,7 @@
     <div class="columns is-multiline">
       <div v-for="event in events" :event="event" :key="event.id" class="column is-half">
         <router-link :to="`/event/${event.id}`">
-          <EventCard :event="event" />
+          <EventCard :event="event" style="border: solid;border-color: lightgray;" />
         </router-link>
       </div>
     </div>

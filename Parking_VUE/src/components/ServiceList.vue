@@ -3,7 +3,7 @@
     <h2 class="subtitle is-3">Servicios</h2>
     <div class="columns is-multiline">
       <div v-for="service in services" :service="service" :key="service.id" class="column is-one-third">
-          <ServiceCard :service="service" />
+          <ServiceCard :service="service" style="border: solid;border-color: lightgray;" />
       </div>
     </div>
   </div>

@@ -8,13 +8,13 @@
         <img v-bind:src="require('../assets/' + event.featuredImage)" alt="Equipo"/>
       </div>
     </div>
-    <hr>
-    <div style="height: 100px;">
-      <hr>
+ 
+    <div style="height: 100px; margin-top: 200px;">
+
       <h2 class="is-size-4 has-text-weight-bold">{{ event.name }}</h2>
       <p>{{ event.theme }} ... Leer más</p>
 
-      <hr>
+
     </div>
   </div>
 </template>
@@ -37,7 +37,7 @@ export default {
   background-color: rgba(0, 0, 0, 0.35);
   top: 0;
   padding: 10px;
-  height: 300px;
+  height: 350px;
   width: 100%;
   span {
     font-size: 18px;

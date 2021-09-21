@@ -1,15 +1,14 @@
 <template>
   <div class="event-card">
     <div class="card">
-
       <div class="card-content">
         <small class="event-date">{{ service.category }}</small>
         <img v-bind:src="require('../assets/' + service.featuredImage)" alt="servicio" />
       </div>
     </div>
     <div style="height: 100px;">
-      <hr>
-      <p>{{ service.description }}</p>
+      
+      <p style="margin-top: 100px;">{{ service.description }}</p>
       <small>{{ service.theme }}</small>
       <hr>
     </div>
@@ -34,7 +33,7 @@ export default {
   background-color: rgba(0, 0, 0, 0.35);
   top: 0;
   padding: 10px;
-  height: 200px;
+  height: 300px;
   width: 100%;
   span {
     font-size: 18px;
