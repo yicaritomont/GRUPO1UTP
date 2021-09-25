@@ -20,7 +20,7 @@
       <router-link to="/editC" class="navbar-item">Edit C</router-link>
       <router-link to="/editP" class="navbar-item">Edit P</router-link>
       <router-link to="/busqueda" class="navbar-item">Buscar Parqueaderos</router-link>
-
+      <router-link to="/listaSeparacion" class="navbar-item">Lista Separación</router-link>
     </div>
     <div class="navbar-end">
       <div class="navbar-item">

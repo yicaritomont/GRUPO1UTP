@@ -23,11 +23,11 @@
               <form class="signin-form" method="POST">
                 <div class="form-group mb-3">
                   <label class="label" for="name">Correo Electrónico</label>
-                  <input type="text" class="form-control" name="email" placeholder="Correo Electrónico" required="">
+                  <input v-model="email" type="text" class="form-control" name="email" placeholder="Correo Electrónico" required="">
                 </div>
                 <div class="form-group mb-3">
                   <label class="label" for="password">Contraseña</label>
-                  <input type="password" class="form-control" name="password" placeholder="Contraseña" required="">
+                  <input v-model="password" type="password" class="form-control" name="password" placeholder="Contraseña" required="">
                 </div>
                 <div class="form-group">
                   <button type="submit" class="form-control px-3 button is-dark" @click="logintTest">Ingresar</button>
@@ -113,16 +113,16 @@
 <script>
   //import axios from "axios";
   export default {
-    name: "EventSingle",
-    data() {
-      return {
-        info:null,
-      }
-    },
+    name: "Login",
+    data: () => ({
+      email: " ",
+      password: " "
+    }),
     methods: {
       logintTest(e){
         e.preventDefault();
-        alert("nananana");
+        console.log(this.email);
+        console.log(this.password);
         /*var request = require("request");
         var options = { method: 'POST',
           url: 'https://dev-dmmyc9h2.us.auth0.com/oauth/token',
