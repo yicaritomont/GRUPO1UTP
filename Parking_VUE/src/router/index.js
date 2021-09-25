@@ -50,6 +50,16 @@ export default new Router({
       component: () => import('../views/SearchParkForm.vue')
     },
     {
+      path: '/separacion/:id',
+      name: 'separateParkForm',
+      component: () => import('../views/SeparateParkForm.vue')
+    },
+    {
+      path: '/listaSeparacion',
+      name: 'separateParkList',
+      component: () => import('../views/SeparateParkList.vue')
+    },
+    {
       path: '/acc',
       name: 'acc',
       component: () => import('../views/EventSingle.vue'),

@@ -5,54 +5,38 @@
             <img alt="" src="../assets/logo-para-el-banner.png" style="hidden" />
         <div class="col-md-12 col-lg-10">
           <div class="w-100" style="margin-bottom: 6%; margin-top: 10%;">
-            <h1><strong style="font-size: 35px;">Busca Tu parqueadero</strong></h1>
+            <h1><strong style="font-size: 35px;">Separar Espacio de Parqueo</strong></h1>
           </div>
-          <div class="wrap d-md-flex ">
-              <div class="container">
-                  <div class="form-group mb-3">
-                    <label class="label" for="password">Ciudad</label>
-                    <select v-model="ciudadSeleccionada" class="form-control" id="ciudad" required="">
-                        <option value="0">Seleccione..</option>
-                        <option v-for="ciudad in ciudades" :key="ciudad.id" :value="ciudad.id">{{ciudad.ciudad}}</option>
-                    </select>
-                  </div>
-                  
-              </div>
+          <div class="wrap">
+          <hr>
               <div class="container">
                 <div class="form-group mb-3">
-                  <label class="label" for="password">Zona</label>
-                  <input type="text" class="form-control" name="zona" placeholder="zona">
+                  <label class="label" for="password">Lugar</label>
+                  <p class="form-control">{{parqueadero.nombre_parqueadero}}</p>
                 </div>
-              </div>
-              <div class="container">
                 <div class="form-group mb-3">
-                  <button type="submit" class="form-control px-3 button is-dark" style="margin-top: 10%;" @click="listarParqueadero">Buscar</button>
+                  <label class="label" for="password">Servicios</label>
+                  <p class="form-control">{{parqueadero.servicios}}</p>
+                </div>
+                <div class="form-group mb-3">
+                  <label class="label" for="password">Contacto</label>
+                  <p class="form-control">{{parqueadero.telefono}} - {{parqueadero.direccion}}</p>
+                </div>
+                <div class="form-group mb-3">
+                  <label class="label" for="password">Fecha</label>
+                  <input type="date" class="form-control" name="fecha">
+                </div>
+                <div class="form-group mb-3">
+                  <label class="label" for="password">Servicio a Tomar</label>
+                  <textarea class="form-control" name="servicios" style="height:100px;"></textarea>
+                </div>
+                <div class="form-group mb-3 d-md-flex">
+                  <button type="submit" class="form-control px-3 button is-dark" style="margin-top: 10%;" @click="separarParqueadero">Separar</button>
+                  <router-link :to="`/busqueda`" class="form-control px-3 button is-dark" style="margin-top: 10%;">Regresar</router-link>
                 </div>
               </div>
+              
             
-          </div>
-          <div class="container">
-              <div v-for="parqueadero in parqueaderos" :parqueadero="parqueadero" :key="parqueadero.id" class="column">
-                  <div class="wrap d-md-flex div-resultado">
-                    <div class="form-group mb-4 resultado" style="text-align: center;">
-                      <label class="label" style="font-size: 20px;">{{parqueadero.nombre_parqueadero}}</label>
-                      <router-link :to="`/separacion/${parqueadero.id}`" class="form-control px-3 button is-dark" style="margin-top: 10%;">Separar Espacio</router-link>
-                    </div>
-                    <div class="form-group mb-4 resultado">
-                      <label class="label" >{{parqueadero.servicios}}</label>
-                    </div>
-                    <div class="form-group mb-4 resultado">
-                      <div><b>Teléfono :</b> {{parqueadero.telefono}}</div>
-                      <div><b>Correo :</b> {{parqueadero.correo}}</div>
-                      <div><b>Dirección :</b> {{parqueadero.direccion}}</div>
-                      <div><b>Ciudad :</b> {{parqueadero.ciudad}}</div>
-                    </div>
-                  </div>
-                
-                <!--<router-link :to="`/event/${event.id}`">
-                  
-                </router-link>-->
-              </div>
           </div>
         </div>
       </div>
@@ -171,62 +155,66 @@
         "ciudad": "Ciudad Piloto",
     }
   ];
-  let parqueaderos = [
-    {
-        "id": 1,
-        "nombre": "Pepito",
-        "apellido": "Perez",
-        "documento": "12345678",
-        "nombre_parqueadero": "El pijao Park",
-        "servicios": "Lo que ofrece el parquedero",
-        "ciudad": "ciudad Piloto",
-        "direccion": "Calle 1 carrera 1",
-        "telefono": 256833,
-        "celular": 3124567896,
-        "correo": "elpijaopark@gmail.com"
-    },
-    {
-        "id": 2,
-        "nombre": "Pepito",
-        "apellido": "Perez",
-        "documento": "12345678",
-        "nombre_parqueadero": "El Parqueaderito",
-        "servicios": "Lo que ofrece el parquedero",
-        "ciudad": "ciudad Piloto",
-        "direccion": "Calle 1 carrera 1",
-        "telefono": 256833,
-        "celular": 3124567896,
-        "correo": "elpijaopark@gmail.com"
-    },
-    {
-        "id": 3,
-        "nombre": "nenenenene",
-        "apellido": "Perez",
-        "documento": "12345678",
-        "nombre_parqueadero": "El Parqueaderito",
-        "servicios": "Lo que ofrece el parquedero",
-        "ciudad": "ciudad Piloto",
-        "direccion": "Calle 1 carrera 1",
-        "telefono": 256833,
-        "celular": 3124567896,
-        "correo": "elpijaopark@gmail.com"
-    }
-  ];
   export default {
     name: "EventSingle",
     data() {
       return {
-        parqueadero:null,
-        parqueaderos:{},
+       parqueadero:{}, 
         ciudadSeleccionada : {},
-        ciudades: ciudades
+        ciudades: ciudades,
+        parqueaderos : [
+          {
+              "id": 1,
+              "nombre": "Pepito",
+              "apellido": "Perez",
+              "documento": "12345678",
+              "nombre_parqueadero": "El pijao Park",
+              "servicios": "Lo que ofrece el parquedero",
+              "ciudad": "ciudad Piloto",
+              "direccion": "Calle 1 carrera 1",
+              "telefono": 256833,
+              "celular": 3124567896,
+              "correo": "elpijaopark@gmail.com"
+          },
+          {
+              "id": 2,
+              "nombre": "Pepito",
+              "apellido": "Perez",
+              "documento": "12345678",
+              "nombre_parqueadero": "El Parqueaderito",
+              "servicios": "Lo que ofrece el parquedero",
+              "ciudad": "ciudad Piloto",
+              "direccion": "Calle 1 carrera 1",
+              "telefono": 256833,
+              "celular": 3124567896,
+              "correo": "elpijaopark@gmail.com"
+          },
+          {
+              "id": 3,
+              "nombre": "nenenenene",
+              "apellido": "Perez",
+              "documento": "12345678",
+              "nombre_parqueadero": "El Parqueaderito",
+              "servicios": "Lo que ofrece el parquedero",
+              "ciudad": "ciudad Piloto",
+              "direccion": "Calle 1 carrera 1",
+              "telefono": 256833,
+              "celular": 3124567896,
+              "correo": "elpijaopark@gmail.com"
+          }
+        ]
       }
+    },    
+    created() {
+        const ID = Number(this.$route.params.id);
+        let parqueadero = this.parqueaderos.find(parqueadero => parqueadero.id === ID);
+        this.parqueadero = parqueadero;
     },
     methods: {
-      listarParqueadero(e){
-        this.parqueaderos = parqueaderos
+      separarParqueadero(e){
+      
         e.preventDefault();
-        alert("Busca!!!");
+        alert("guarde!!!");
         /*var request = require("request");
         var options = { method: 'POST',
           url: 'https://dev-dmmyc9h2.us.auth0.com/oauth/token',
