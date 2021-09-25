@@ -12,7 +12,9 @@
         Hola! nos complace saber que deseas conocer sobre nuestro proyecto.
         Este está pensado en ayudar con la activación económica y hacer visibles los servicios de parqueadero y sus adicionales.
         <br>
-        Lo que debes hacer es registrarte y usar nuestro directorio </p>
+        Lo que debes hacer es registrarte y usar nuestro directorio
+        <br>
+        El paqueadero es un sistema que posee una plataforma Movil. Dicho dispositivo puede agendar su estacionamiento de los vehiculos y asi evitar las filas para hacer el ingreso a la plataforma. </p>
     </div>
   </div>
 </template>
