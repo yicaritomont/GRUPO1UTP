@@ -15,7 +15,7 @@
         Lo que debes hacer es registrarte y usar nuestro directorio
         <br>
         El paqueadero es un sistema que posee una plataforma Movil. Dicho dispositivo puede agendar su estacionamiento de los vehiculos y asi evitar las filas para hacer el ingreso a la plataforma. </p>
-    </div><<br>
+    </div><br>
     <div class="hero is-danger">
       <div class="hero-body">
         <div class="container">
