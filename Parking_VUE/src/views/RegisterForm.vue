@@ -11,32 +11,32 @@
                   <h1><strong style="font-size: 35px;">Registrarse</strong></h1>
                 </div>
               </div>
-              <form class="signin-form" method="POST">
+              <form @submit.prevent="registerTest(usuario)" v-if="agregar">
                 <div class="form-group mb-3">
                   <div class="flex">
-                    <input type="radio" class="radio" value="C"  name="name" placeholder="Nombre" required=""> <b style="margin-left:10px">Tengo Parqueadero</b>
-                    <input type="radio" class="radio" value="P"  name="name" placeholder="Nombre" required=""> <b style="margin-left:10px">Busco Parqueadero</b>
+                    <input v-model="usuario.tipo_usuario" type="radio" class="radio" value="C"  name="tipo_usuario" placeholder="Nombre" required=""> <b style="margin-left:10px">Tengo Parqueadero</b>
+                    <input v-model="usuario.tipo_usuario" type="radio" class="radio" value="P"  name="tipo_usuario" placeholder="Nombre" required=""> <b style="margin-left:10px">Busco Parqueadero</b>
 
                   </div>
                 </div>
                 <div class="form-group mb-3">
                   <label class="label" for="name">Nombres</label>
-                  <input type="text" class="form-control" name="name" placeholder="Nombre" required="">
+                  <input v-model="usuario.nombre" type="text" class="form-control" name="nombre" placeholder="Nombre" required="">
                 </div>
                 <div class="form-group mb-3">
                   <label class="label" for="name">Apellidos</label>
-                  <input type="text" class="form-control" name="lastname" placeholder="Apellidos" required="">
+                  <input v-model="usuario.apellido" type="text" class="form-control" name="apellido" placeholder="Apellidos" required="">
                 </div>
                 <div class="form-group mb-3">
                   <label class="label" for="name">Correo Electrónico</label>
-                  <input type="text" class="form-control" name="email" placeholder="Correo Electrónico" required="">
+                  <input v-model="usuario.correo_electronico" type="text" class="form-control" name="correo_electronico" placeholder="Correo Electrónico" required="">
                 </div>
                 <div class="form-group mb-3">
                   <label class="label" for="password">Contraseña</label>
-                  <input type="password" class="form-control" name="password" placeholder="Contraseña" required="">
+                  <input v-model="usuario.contrasena" type="password" class="form-control" name="contrasena" placeholder="Contraseña" required="">
                 </div>
                 <div class="form-group">
-                  <button type="submit" class="form-control px-3 button is-dark" @click="registerTest">Registrarse</button>
+                  <b-button type="submit" class="form-control px-3 button is-dark">Registrarse</b-button>
                 </div>
               </form>
             </div>
@@ -127,32 +127,27 @@
   //import axios from "axios";
   export default {
     name: "EventSingle",
-    data() {
+     data() {
       return {
-        info:null,
-      }
+        usuarios: [],
+        usuario: {},
+        agregar: true,
+      };
     },
     methods: {
-      registerTest(e){
-        e.preventDefault();
-        alert("nananana");
-        /*var request = require("request");
-        var options = { method: 'POST',
-          url: 'https://dev-dmmyc9h2.us.auth0.com/oauth/token',
-          headers: { 'content-type': 'application/json' },
-          body: '{"client_id":"xkLayT4kLLTTMJRRst4M4AvekIb4sXLq","client_secret":"SYukBRvtdYMF0nSentINqQJ5iowGYh11gHo-2N88bI0Bwu_KYXcT4aiJ-2KCoqda","audience":"https://dev-dmmyc9h2.us.auth0.com/api/v2/","grant_type":"client_credentials"}' };
+      registerTest(item){
+        this.axios.post('user/nuevo-usuario',item)
+          .then( res => {
+            this.usuarios.unshift(res.data);
+            this.$swal("Excelente! , Se ha registrado correctamente");
 
-        request(options, function (error, response, body) {
-          if(response.statusCode == "200"){
-            console.log("OK");
-            console.log(body);
-          }
-
-          if (error) throw new Error(error);
-        });*/
-
+          })
+          .catch( e =>{
+            console.log(e);
+            this.$swal("No hemos podido realizar el registro intente más tarde");
+          })
+          this.usuario = {}
       }
-
     }
 }
 </script>
