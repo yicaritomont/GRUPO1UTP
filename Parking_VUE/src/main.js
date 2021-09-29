@@ -3,6 +3,10 @@ import App from './App.vue'
 import router from './router'
 import VueCarousel from 'vue-carousel'
 import './../node_modules/bulma/css/bulma.css';
+import BootstrapVue from 'bootstrap-vue'
+Vue.use(BootstrapVue)
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap-vue/dist/bootstrap-vue.css'
 
 // Import the Auth0 configuration
 import { domain, clientId } from "../auth_config.json";
@@ -22,9 +26,23 @@ Vue.use(Auth0Plugin, {
     );
   }
 });
-Vue.use(VueCarousel);
+import axios from 'axios'
+import VueAxios from 'vue-axios'
+Vue.use(VueAxios, axios)
+// Agregamos la URL base de nuestra API
+axios.defaults.baseURL = 'http://localhost:3000/';
 
+Vue.use(VueCarousel);
 Vue.config.productionTip = false
+
+import VueSweetalert2 from 'vue-sweetalert2';
+
+const options = {
+  confirmButtonColor: '#41b882',
+  cancelButtonColor: '#ff7674',
+};
+
+Vue.use(VueSweetalert2, options);
 
 new Vue({
   router,
