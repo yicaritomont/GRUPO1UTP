@@ -3,6 +3,7 @@
   <div class="navbar-brand">
     <a class="navbar-item" href="/">
       <img src="../../assets/logo-para-el-banner.png">
+      
     </a>
     <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
       <span aria-hidden="true"></span>
@@ -11,27 +12,28 @@
     </a>
   </div>
   <div id="navbar" class="navbar-menu">
+    <p v-if="auth" style="margin-top: 1.4%;color: #d71920;font-weight: bolder;"> Hola {{nombre_usuario}} !</p>
     <div class="navbar-start">
       <a href="/#Servicios" class="navbar-item">Servicios</a>
       <a href="/#Noticias" class="navbar-item">Noticias</a>
       <a href="/#Equipo" class="navbar-item">Equipo</a>
       <router-link to="/about" class="navbar-item">Detalles</router-link>
-      <router-link to="/login" class="navbar-item">Ingresar</router-link>
-      <router-link to="/editC" class="navbar-item">Edit C</router-link>
-      <router-link to="/editP" class="navbar-item">Edit P</router-link>
-      <router-link to="/busqueda" class="navbar-item">Buscar Parqueaderos</router-link>
-      <router-link to="/listaSeparacion" class="navbar-item">Lista Separación</router-link>
+      <router-link v-if="auth && tipo_usuario =='C'" to="/editC" class="navbar-item">Mi información</router-link>
+      <router-link v-if="auth && tipo_usuario == 'P'" to="/editP" class="navbar-item">Mi infomación</router-link>
+      <router-link v-if="auth" to="/busqueda" class="navbar-item">Buscar Parqueaderos</router-link>
+      <router-link v-if="auth" to="/listaSeparacion" class="navbar-item">Lista Separación</router-link>
     </div>
     <div class="navbar-end">
       <div class="navbar-item">
         <div class="buttons">
           <!-- Check that the SDK client is not currently loading before accessing is methods -->
-          <div v-if="!$auth.loading">
+          <div class="flex">
             <!-- show login when not authenticated -->
-            <a v-if="!$auth.isAuthenticated" @click="login" class="button is-dark"><strong>Iniciar Sesion</strong></a>
+            <a v-if="!auth" @click="login" class="button is-dark"><strong>Iniciar Sesion / Registrarse</strong></a>
             <!-- show logout when authenticated -->
-            <a v-if="$auth.isAuthenticated" @click="logout" class="button is-dark"><strong>Cerrar Sesion</strong></a>
+            <a v-if="auth" @click="logout" class="button is-dark"><strong>Cerrar Sesion</strong></a>
           </div>
+            
         </div>
       </div>
     </div>
@@ -41,13 +43,23 @@
 <script>
 export default {
   name: 'Nav',
+  data() {
+    console.log(localStorage.tipo_usuario)
+    return {
+      auth: localStorage.userLog,
+      tipo_usuario : localStorage.tipo_usuario,
+      id_usuario : localStorage.id_usuario,
+      nombre_usuario : localStorage.nombre_usuario,
+    };
+  },
   methods: {
   // Log the user in
   login() {
-    this.$auth.loginWithRedirect();
+    window.location.href = '/login';
   },
   // Log the user out
   logout() {
+    localStorage.clear();
     this.$auth.logout({
       returnTo: window.location.origin
     });

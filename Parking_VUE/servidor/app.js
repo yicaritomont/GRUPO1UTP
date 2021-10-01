@@ -5,10 +5,12 @@ import cors  from 'cors';
 import path  from 'path';
 
 const app = express();
-
+//mongodb+srv://JuanR:ABCD123@mrparking.rhkft.mongodb.net/mrparking?retryWrites=true&w=majority
+//mongodb://localhost:27017/parking
 // conexión a base de datos
 const mongoose = require('mongoose');
-const uri = "mongodb://localhost:27017/parking";
+const uri = "mongodb+srv://JuanR:ABCD123@mrparking.rhkft.mongodb.net/mrparking?retryWrites=true&w=majority";
+//const uri = "mongodb://localhost:27017/parking";
 const options = {useNewUrlParser: true, useUnifiedTopology:true};
 // Or using promises
 mongoose.connect(uri, options).then(

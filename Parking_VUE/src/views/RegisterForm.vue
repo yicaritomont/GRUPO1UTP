@@ -14,8 +14,8 @@
               <form @submit.prevent="registerTest(usuario)" v-if="agregar">
                 <div class="form-group mb-3">
                   <div class="flex">
-                    <input v-model="usuario.tipo_usuario" type="radio" class="radio" value="C"  name="tipo_usuario" placeholder="Nombre" required=""> <b style="margin-left:10px">Tengo Parqueadero</b>
-                    <input v-model="usuario.tipo_usuario" type="radio" class="radio" value="P"  name="tipo_usuario" placeholder="Nombre" required=""> <b style="margin-left:10px">Busco Parqueadero</b>
+                    <input v-model="usuario.tipo_usuario" type="radio" class="radio" value="P"  name="tipo_usuario" placeholder="Nombre" required=""> <b style="margin-left:10px">Tengo Parqueadero</b>
+                    <input v-model="usuario.tipo_usuario" type="radio" class="radio" value="C"  name="tipo_usuario" placeholder="Nombre" required=""> <b style="margin-left:10px">Busco Parqueadero</b>
 
                   </div>
                 </div>
@@ -36,7 +36,7 @@
                   <input v-model="usuario.contrasena" type="password" class="form-control" name="contrasena" placeholder="Contraseña" required="">
                 </div>
                 <div class="form-group">
-                  <b-button type="submit" class="form-control px-3 button is-dark">Registrarse</b-button>
+                  <button type="submit" class="form-control px-3 button is-dark">Registrarse</button>
                 </div>
               </form>
             </div>
@@ -138,8 +138,39 @@
       registerTest(item){
         this.axios.post('user/nuevo-usuario',item)
           .then( res => {
+            let id_usuario_creado = res.data._id;
+            if(item.tipo_usuario == "C") {
+              let cliente = [{
+                        'id_usuario' : id_usuario_creado,
+                        'telefono' : '000',
+                        }];
+              this.axios.post('client/nuevo',cliente)
+              .then(res =>{
+                console.log("cliente",res);
+              })
+              .catch( e =>{
+                console.log("crear Cliente ", e);
+              })
+            }
+            if(item.tipo_usuario == "P") {
+              let cliente = [{
+                        'id_usuario' : id_usuario_creado,
+                        'nombre_parqueadero' : 'Actualiza el nombre de tu parqueadero',
+                        'servicios': 'Actualiza tus servicios',
+                        'direccion' : "Actualiza la dirección de tu parqueadero",
+                        'telefono' : '000',
+                        }];
+              this.axios.post('park/nuevo',cliente)
+              .then(res =>{
+                console.log("parqueadero",res);
+              })
+              .catch( e =>{
+                console.log("crear PArqueadero ", e);
+              })
+            }
             this.usuarios.unshift(res.data);
             this.$swal("Excelente! , Se ha registrado correctamente");
+            this.$router.push({name: "/login"});
 
           })
           .catch( e =>{

@@ -10,9 +10,7 @@ router.post('/nuevo', async(req, res) => {
     try {
         const clienteDB = await Cliente.create(body);
         res.status(200).json(clienteDB);
-        console.log("READY");
     } catch (error) {
-        console.log("FALSE");
         return res.status(500).json({
         mensaje: 'Ocurrio un error',
         error
@@ -21,10 +19,11 @@ router.post('/nuevo', async(req, res) => {
 });
 
 //Consultar cliente específica
-router.get('/:id', async(req, res) => {
+router.get('/getcliente/:id', async(req, res) => {
     const _id = req.params.id;
     try {
         const clienteDB = await Cliente.findOne({_id});
+        
         res.json(clienteDB);
     } catch (error) {
         return res.status(400).json({
@@ -71,6 +70,8 @@ router.delete('/:id', async(req, res) => {
 router.put('/up/:id', async(req, res) => {
     const _id = req.params.id;
     const body = req.body;
+    console.log("param",req.params);
+    console.log("body",req.body);
     try {
         const clienteDb = await Cliente.findByIdAndUpdate(
         _id,

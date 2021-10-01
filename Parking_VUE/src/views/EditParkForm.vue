@@ -4,6 +4,9 @@
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-md-12 col-lg-10">
+          <form @submit.prevent="actualizarParqueadero(parqueadero)">
+            <input v-model="parqueadero.id_usuario" type="hidden" class="form-control" name="id_usuario" placeholder="Nombre" required="">
+            <input v-model="parqueadero._id" type="hidden" class="form-control" name="id_parqueadero" placeholder="Nombre" required="">
           <div class="wrap d-md-flex">
             <div class="login-wrap p-4 p-lg-5">
               <div class="d-flex">
@@ -14,26 +17,22 @@
               <h1><strong style="font-size: 20px;">Información Personal</strong></h1>
                 <div class="form-group mb-3">
                   <label class="label" for="name">Nombres</label>
-                  <input type="text" class="form-control" name="name" placeholder="Nombre" required="">
+                  <input v-model="parqueadero.nombre" type="text" class="form-control" name="name" placeholder="Nombre" required="">
                 </div>
                 <div class="form-group mb-3">
                   <label class="label" for="name">Apellidos</label>
-                  <input type="text" class="form-control" name="lastname" placeholder="Apellidos" required="">
-                </div>
-                <div class="form-group mb-3">
-                  <label class="label" for="name">Número Documento</label>
-                  <input type="text" class="form-control" name="doc" placeholder="Número documento">
+                  <input v-model="parqueadero.apellido" type="text" class="form-control" name="lastname" placeholder="Apellidos" required="">
                 </div>
                 <div class="form-group mb-3">
                   <label class="label" for="name">Nombre del Parqueadero</label>
-                  <input type="text" class="form-control" name="name_park" placeholder="Nombre del parqueadero">
+                  <input v-model="parqueadero.nombre_parqueadero" type="text" class="form-control" name="name_park" placeholder="Nombre del parqueadero">
                 </div>
                 <div class="form-group mb-3">
                   <label class="label" for="name">Mis Servicios</label>
-                  <textarea class="form-control" name="servicios" style="height:100px;">Deja un listado de tus servicios: (ejem Parqueadero Carros hora /fraccion $2.000 .. Lavado de vehiculos $...)</textarea>
+                  <textarea v-model="parqueadero.servicios" class="form-control" name="servicios" style="height:100px;">Deja un listado de tus servicios: (ejem Parqueadero Carros hora /fraccion $2.000 .. Lavado de vehiculos $...)</textarea>
                 </div>
                 <div class="form-group">
-                  <button type="submit" class="form-control px-3 button is-dark" @click="actualizarCliente">Actualizar</button>
+                  <button type="submit" class="form-control px-3 button is-dark">Actualizar</button>
                 </div>
             </div>
             <div class="text-wrap p-4 p-lg-5 ">
@@ -41,35 +40,28 @@
                 <h1><strong style="font-size: 20px;">Ubicación</strong></h1>
                 <div class="form-group mb-3">
                   <label class="label" for="password">Ciudad</label>
-                  <select class="form-control" required="">
-                      <option value="">Seleccione..</option>
-                      <option value="CP">Ciudad Piloto</option>
+                  <select v-model="parqueadero.id_ciudad" class="form-control" id="ciudad" required="">
+                      <option>Seleccione...</option>
+                      <option v-for="ciudad in ciudades" :key="ciudad.id"  v-bind:value="parqueadero.id_ciudad" >{{ciudad.ciudad}}</option>
                   </select>
                 </div>
                 <h1><strong style="font-size: 20px;">Información Contacto</strong></h1>
                 <div class="form-group mb-3">
                   <label class="label" for="name">Dirección</label>
-                  <input type="text" class="form-control" name="dir" placeholder="Dirección">
+                  <input v-model="parqueadero.direccion" type="text" class="form-control" name="dir" placeholder="Dirección">
                 </div>
                 <h1>Información de Contacto</h1>
                 <div class="form-group mb-3">
                   <label class="label" for="name">Número de Teléfono</label>
-                  <input type="text" class="form-control" name="tel" placeholder="Número de teléfono">
-                </div>
-                <div class="form-group mb-3">
-                  <label class="label" for="name">Número de Celular</label>
-                  <input type="text" class="form-control" name="cel" placeholder="Número de celular">
+                  <input v-model="parqueadero.telefono" type="text" class="form-control" name="tel" placeholder="Número de teléfono">
                 </div>
                 <div class="form-group mb-3">
                   <label class="label" for="name">Correo Electrónico</label>
-                  <input type="text" class="form-control" name="email" placeholder="Correo Electrónico">
-                </div>
-                <div class="form-group mb-3">
-                  <label class="label" for="name">logo Sitio</label>
-                  <input type="text" class="form-control" name="logo" placeholder="Logo">
+                  <input v-model="parqueadero.correo_electronico" type="text" readonly="true" class="form-control" name="email" placeholder="Correo Electrónico">
                 </div>
             </div>
           </div>
+        </form>
         </div>
       </div>
     </div>
@@ -154,34 +146,68 @@
 </style>
 <script>
   //import axios from "axios";
+   let ciudades = [
+    {
+        "id": 1,
+        "ciudad": "Ciudad Piloto",
+    }
+  ];
   export default {
     name: "EventSingle",
     data() {
       return {
         info:null,
+        parqueadero: "",
+        ciudades: ciudades, 
       }
     },
     methods: {
-      actualizarCliente(e){
-        e.preventDefault();
-        alert("nananana");
-        /*var request = require("request");
-        var options = { method: 'POST',
-          url: 'https://dev-dmmyc9h2.us.auth0.com/oauth/token',
-          headers: { 'content-type': 'application/json' },
-          body: '{"client_id":"xkLayT4kLLTTMJRRst4M4AvekIb4sXLq","client_secret":"SYukBRvtdYMF0nSentINqQJ5iowGYh11gHo-2N88bI0Bwu_KYXcT4aiJ-2KCoqda","audience":"https://dev-dmmyc9h2.us.auth0.com/api/v2/","grant_type":"client_credentials"}' };
+      actualizarParqueadero(item){
+        var itemUsuario = {
+          "nombre": item.nombre,
+          "apellido": item.apellido,
+        };
+        this.axios.put('user/usuarioup/'+ this.parqueadero.id_usuario ,itemUsuario)
+          .then( res => {     
+            //let id_usuario_editado = res.data._id;       
+            console.log(res.data);
+            console.log("item",item)
+            var itemParqueadero={
+              "id_ciudad": item.id_ciudad,
+              "nombre_parqueadero": item.nombre_parqueadero,
+              "servicios": item.servicios,
+              "direccion": item.direccion,
+              "telefono": item.telefono
+            }
+            this.axios.put('park/up/'+item._id,itemParqueadero)
+              .then(res =>{
+                console.log("parqueadero",res);
+                this.$swal("Excelente! , Se ha actualizado correctamente");
+              })
+              .catch( e =>{
+                console.log("actualizar Cliente ", e);
+                this.$swal("Error! , no hemos actualizado información");
 
-        request(options, function (error, response, body) {
-          if(response.statusCode == "200"){
-            console.log("OK");
-            console.log(body);
-          }
+              })
 
-          if (error) throw new Error(error);
-        });*/
-
+          })
+          .catch( e =>{
+            console.log(e);
+            this.$swal("No hemos podido realizar la actualizacion intente más tarde");
+          })
       }
 
+    },
+    beforeCreate(){     
+      this.axios.get('user/getusuario/'+localStorage.id_user)
+        .then( res => {
+          var infousuario = res.data.usuario;
+          delete infousuario.date;
+          var infoparqueadero = res.data.parqueadero;
+          delete infoparqueadero.date;
+          this.parqueadero= Object.assign({},infousuario,infoparqueadero);
+        })  
+      
     }
 }
 </script>
