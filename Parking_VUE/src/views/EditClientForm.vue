@@ -11,29 +11,32 @@
                   <h1><strong style="font-size: 35px;">Editar Cliente</strong></h1>
                 </div>
               </div>
-              <form class="signin-form" method="POST">
+              <form @submit.prevent="actualizarCliente(cliente)" class="signin-form">
+                  <input v-model="cliente.id_usuario" type="hidden" class="form-control" name="id_usuario" placeholder="Nombre" required="">
+                  <input v-model="cliente._id" type="hidden" class="form-control" name="id_cliente" placeholder="Nombre" required="">
+
                 <div class="form-group mb-3">
                   <label class="label" for="name">Nombres</label>
-                  <input type="text" class="form-control" name="name" placeholder="Nombre" required="">
+                  <input v-model="cliente.nombre" type="text" class="form-control" name="nombre" placeholder="Nombre" required="">
                 </div>
                 <div class="form-group mb-3">
                   <label class="label" for="name">Apellidos</label>
-                  <input type="text" class="form-control" name="lastname" placeholder="Apellidos" required="">
+                  <input v-model="cliente.apellido" type="text" class="form-control" name="apellido" placeholder="Apellidos" required="">
                 </div>
                 <div class="form-group mb-3">
-                  <label class="label" for="name">Número Documento</label>
-                  <input type="text" class="form-control" name="doc" placeholder="Numero documento">
+                  <label class="label" for="name">Documento</label>
+                  <input v-model="cliente.documento" type="text" class="form-control" name="documento" placeholder="Documento" required="">
                 </div>
                 <div class="form-group mb-3">
                   <label class="label" for="password">Ciudad</label>
-                  <select v-model="ciudadSeleccionada" class="form-control" id="ciudad" required="">
+                  <select v-model="cliente.id_ciudad" class="form-control" id="ciudad" required="">
                       <option>Seleccione...</option>
-                      <option v-for="ciudad in ciudades" :key="ciudad.id" :value="ciudad.id">{{ciudad.ciudad}}</option>
+                      <option v-for="ciudad in ciudades" :key="ciudad.id"  v-bind:value="cliente.id_ciudad" >{{ciudad.ciudad}}</option>
                   </select>
                 </div>
                 <div class="form-group mb-3">
                   <label class="label" for="name">Número de Celular</label>
-                  <input type="text" class="form-control" name="cel" placeholder="Numero de celular">
+                  <input v-model="cliente.telefono" type="text" class="form-control" name="cel" placeholder="Numero de celular">
                 </div>
                 <div class="form-group">
                   <button type="submit" class="form-control px-3 button is-dark" @click="actualizarCliente">Actualizar</button>
@@ -134,33 +137,60 @@
   export default {
     name: "EventSingle",
     data() {
+      
       return {
-        info:null,
+        cliente:"",
         ciudadSeleccionada : {},
-        ciudades: ciudades,
+        ciudades: ciudades, 
+        
       }
-    },
+    }, 
     methods: {
-      actualizarCliente(e){
-        e.preventDefault();
-        alert("nananana");
-        /*var request = require("request");
-        var options = { method: 'POST',
-          url: 'https://dev-dmmyc9h2.us.auth0.com/oauth/token',
-          headers: { 'content-type': 'application/json' },
-          body: '{"client_id":"xkLayT4kLLTTMJRRst4M4AvekIb4sXLq","client_secret":"SYukBRvtdYMF0nSentINqQJ5iowGYh11gHo-2N88bI0Bwu_KYXcT4aiJ-2KCoqda","audience":"https://dev-dmmyc9h2.us.auth0.com/api/v2/","grant_type":"client_credentials"}' };
+      actualizarCliente(item){
+        var itemUsuario = {
+          "nombre": item.nombre,
+          "apellido": item.apellido,
+        };
+        this.axios.put('user/usuarioup/'+ this.cliente.id_usuario ,itemUsuario)
+          .then( res => {     
+            //let id_usuario_editado = res.data._id;       
+            console.log(res.data);
+            console.log("item",item)
+            var itemCliente={
+              "id_ciudad": item.id_ciudad,
+              "documento": item.documento,
+              "telefono" : item.telefono,
+              "id" : item._id,
+            }
+            this.axios.put('client/up/'+item._id,itemCliente)
+              .then(res =>{
+                console.log("cliente",res);
+                this.$swal("Excelente! , Se ha actualizado correctamente");
+              })
+              .catch( e =>{
+                console.log("actualizar Cliente ", e);
+                this.$swal("Error! , no hemos actualizado información");
 
-        request(options, function (error, response, body) {
-          if(response.statusCode == "200"){
-            console.log("OK");
-            console.log(body);
-          }
+              })
 
-          if (error) throw new Error(error);
-        });*/
-
+          })
+          .catch( e =>{
+            console.log(e);
+            this.$swal("No hemos podido realizar la actualizacion intente más tarde");
+          })
       }
 
+    }, 
+    beforeCreate(){     
+      this.axios.get('user/getusuario/'+localStorage.id_user)
+        .then( res => {
+          var infousuario = res.data.usuario;
+          delete infousuario.date;
+          var infocliente = res.data.cliente;
+          delete infocliente.date;
+          this.cliente= Object.assign({},infousuario,infocliente);
+        })  
+      
     }
 }
 </script>

@@ -20,7 +20,7 @@
                   <h1><strong style="font-size: 35px;">Iniciar Sesión</strong></h1>
                 </div>
               </div>
-              <form class="signin-form" method="POST">
+              <form class="signin-form"  @submit.prevent="logintTest()">
                 <div class="form-group mb-3">
                   <label class="label" for="name">Correo Electrónico</label>
                   <input v-model="email" type="text" class="form-control" name="email" placeholder="Correo Electrónico" required="">
@@ -114,30 +114,41 @@
   //import axios from "axios";
   export default {
     name: "Login",
-    data: () => ({
-      email: " ",
-      password: " "
-    }),
+    data() {
+      return {
+        usuarios: [],
+        usuario: {},
+        email : "",
+        password: "",
+      };
+    },
     methods: {
-      logintTest(e){
-        e.preventDefault();
-        console.log(this.email);
-        console.log(this.password);
-        /*var request = require("request");
-        var options = { method: 'POST',
-          url: 'https://dev-dmmyc9h2.us.auth0.com/oauth/token',
-          headers: { 'content-type': 'application/json' },
-          body: '{"client_id":"xkLayT4kLLTTMJRRst4M4AvekIb4sXLq","client_secret":"SYukBRvtdYMF0nSentINqQJ5iowGYh11gHo-2N88bI0Bwu_KYXcT4aiJ-2KCoqda","audience":"https://dev-dmmyc9h2.us.auth0.com/api/v2/","grant_type":"client_credentials"}' };
-
-        request(options, function (error, response, body) {
-          if(response.statusCode == "200"){
-            console.log("OK");
-            console.log(body);
-          }
-
-          if (error) throw new Error(error);
-        });*/
-
+      logintTest(){
+        let item = {'email': this.email, 'password': this.password};
+        this.axios.post('user/login',item)
+          .then( res => {
+            console.log("Res en Login",res);
+            if(res.status == 200){
+              this.usuarios.unshift(res.data);
+              this.$swal("Excelente! logueado");
+              console.log(res.data);
+              localStorage.userLog = res.data;
+              localStorage.id_user = res.data._id;
+              localStorage.tipo_usuario = res.data.tipo_usuario;
+              localStorage.nombre_usuario = res.data.nombre + ' '  + res.data.apellido;
+              window.location.origin
+              this.$router.push({name: "home"});
+              location.reload();
+            }
+            else{
+              this.$swal("Verifique sus credenciales, estan incorrectas");
+            }
+          })
+          .catch( e =>{
+            console.log(e);
+            this.$swal("Error al iniciar sesión, intente más tarde");
+          })
+          this.usuario = {}
       }
 
     }

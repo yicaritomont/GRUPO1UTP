@@ -5,6 +5,7 @@ const parqueaderoSchema = new Schema({
     nombre_parqueadero: {type: String, required: [true, 'Nombre obligatorio']},
     servicios: {type: String, required: [true, 'Servicios  obligatorio']},
     id_ciudad: String,
+    documento:String,
     direccion: {type: String, required: [true, 'Direccion obligatorio']},
     telefono: {type: String, required: [true, 'Telefono obligatorio']},
     celular: String,

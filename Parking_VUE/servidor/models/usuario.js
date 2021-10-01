@@ -7,7 +7,18 @@ const usuarioSchema = new Schema({
     correo_electronico: String,
     contrasena: String,
     activo: {type: Boolean, default: true},
-    date:{type: Date, default: Date.now}
+    date:{type: Date, default: Date.now},
+   /* id_ciudad: {type: String, required: [true, 'Ciudad obligatorio'], default:"1"},
+    // para cliente
+    documento:{type:String, default:'0'},
+    // para parqueadero
+    nombre_parqueadero: {type: String, required: [true, 'Nombre obligatorio']},
+    servicios: {type: String, required: [true, 'Servicios  obligatorio']},
+    
+    direccion: {type: String, required: [true, 'Direccion obligatorio']},
+    telefono: {type: String, required: [true, 'Telefono obligatorio']},
+    celular: String,*/
+
 });
 
 // Convertir a modelo
