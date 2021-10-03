@@ -39,7 +39,7 @@
                   <input v-model="cliente.telefono" type="text" class="form-control" name="cel" placeholder="Numero de celular">
                 </div>
                 <div class="form-group">
-                  <button type="submit" class="form-control px-3 button is-dark" @click="actualizarCliente">Actualizar</button>
+                  <button type="submit" class="form-control px-3 button is-dark">Actualizar</button>
                 </div>
               </form>
             </div>

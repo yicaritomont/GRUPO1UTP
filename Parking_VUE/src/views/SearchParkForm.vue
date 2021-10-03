@@ -7,6 +7,7 @@
           <div class="w-100" style="margin-bottom: 6%; margin-top: 10%;">
             <h1><strong style="font-size: 35px;">Busca Tu parqueadero</strong></h1>
           </div>
+          <form @submit.prevent="listarParqueadero()" >
           <div class="wrap d-md-flex ">
               <div class="container">
                   <div class="form-group mb-3">
@@ -21,22 +22,22 @@
               <div class="container">
                 <div class="form-group mb-3">
                   <label class="label" for="password">Zona</label>
-                  <input type="text" class="form-control" name="zona" placeholder="zona">
+                  <input v-model="zona" type="text" class="form-control" name="zona" placeholder="zona">
                 </div>
               </div>
               <div class="container">
                 <div class="form-group mb-3">
-                  <button type="submit" class="form-control px-3 button is-dark" style="margin-top: 10%;" @click="listarParqueadero">Buscar</button>
+                  <button type="submit" class="form-control px-3 button is-dark" style="margin-top: 10%;">Buscar</button>
                 </div>
               </div>
-            
           </div>
+          </form>
           <div class="container">
               <div v-for="parqueadero in parqueaderos" :parqueadero="parqueadero" :key="parqueadero.id" class="column">
                   <div class="wrap d-md-flex div-resultado">
                     <div class="form-group mb-4 resultado" style="text-align: center;">
                       <label class="label" style="font-size: 20px;">{{parqueadero.nombre_parqueadero}}</label>
-                      <router-link :to="`/separacion/${parqueadero.id}`" class="form-control px-3 button is-dark" style="margin-top: 10%;">Separar Espacio</router-link>
+                      <router-link :to="`/separacion/${parqueadero._id}`" class="form-control px-3 button is-dark" style="margin-top: 10%;">Separar Espacio</router-link>
                     </div>
                     <div class="form-group mb-4 resultado">
                       <label class="label" >{{parqueadero.servicios}}</label>
@@ -45,7 +46,7 @@
                       <div><b>Teléfono :</b> {{parqueadero.telefono}}</div>
                       <div><b>Correo :</b> {{parqueadero.correo}}</div>
                       <div><b>Dirección :</b> {{parqueadero.direccion}}</div>
-                      <div><b>Ciudad :</b> {{parqueadero.ciudad}}</div>
+                      <div><b>Ciudad :</b> {{parqueadero.id_ciudad}}</div>
                     </div>
                   </div>
                 
@@ -171,76 +172,34 @@
         "ciudad": "Ciudad Piloto",
     }
   ];
-  let parqueaderos = [
-    {
-        "id": 1,
-        "nombre": "Pepito",
-        "apellido": "Perez",
-        "documento": "12345678",
-        "nombre_parqueadero": "El pijao Park",
-        "servicios": "Lo que ofrece el parquedero",
-        "ciudad": "ciudad Piloto",
-        "direccion": "Calle 1 carrera 1",
-        "telefono": 256833,
-        "celular": 3124567896,
-        "correo": "elpijaopark@gmail.com"
-    },
-    {
-        "id": 2,
-        "nombre": "Pepito",
-        "apellido": "Perez",
-        "documento": "12345678",
-        "nombre_parqueadero": "El Parqueaderito",
-        "servicios": "Lo que ofrece el parquedero",
-        "ciudad": "ciudad Piloto",
-        "direccion": "Calle 1 carrera 1",
-        "telefono": 256833,
-        "celular": 3124567896,
-        "correo": "elpijaopark@gmail.com"
-    },
-    {
-        "id": 3,
-        "nombre": "nenenenene",
-        "apellido": "Perez",
-        "documento": "12345678",
-        "nombre_parqueadero": "El Parqueaderito",
-        "servicios": "Lo que ofrece el parquedero",
-        "ciudad": "ciudad Piloto",
-        "direccion": "Calle 1 carrera 1",
-        "telefono": 256833,
-        "celular": 3124567896,
-        "correo": "elpijaopark@gmail.com"
-    }
-  ];
+ 
   export default {
     name: "EventSingle",
     data() {
       return {
-        parqueadero:null,
+        parqueadero:"",
         parqueaderos:{},
         ciudadSeleccionada : {},
-        ciudades: ciudades
+        ciudades: ciudades,
+        zona :"",
       }
     },
     methods: {
-      listarParqueadero(e){
-        this.parqueaderos = parqueaderos
-        e.preventDefault();
-        alert("Busca!!!");
-        /*var request = require("request");
-        var options = { method: 'POST',
-          url: 'https://dev-dmmyc9h2.us.auth0.com/oauth/token',
-          headers: { 'content-type': 'application/json' },
-          body: '{"client_id":"xkLayT4kLLTTMJRRst4M4AvekIb4sXLq","client_secret":"SYukBRvtdYMF0nSentINqQJ5iowGYh11gHo-2N88bI0Bwu_KYXcT4aiJ-2KCoqda","audience":"https://dev-dmmyc9h2.us.auth0.com/api/v2/","grant_type":"client_credentials"}' };
-
-        request(options, function (error, response, body) {
-          if(response.statusCode == "200"){
-            console.log("OK");
-            console.log(body);
-          }
-
-          if (error) throw new Error(error);
-        });*/
+      listarParqueadero(){
+        let item = {'ciudad': this.ciudadSeleccionada, 'zona': this.zona};
+        console.log(item);
+        this.axios.get('park/search/' +this.ciudadSeleccionada + '/' +this.zona )
+          .then( res => {
+            console.log(res);
+            this.parqueaderos = res.data;
+            
+          })
+          .catch( e =>{
+            console.log(e);
+            this.$swal("Se ha presentado un error en la búsqueda, intente de nuevo");
+          })
+      
+        
 
       }
 

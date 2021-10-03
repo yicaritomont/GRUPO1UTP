@@ -85,5 +85,19 @@ router.put('/up/:id', async(req, res) => {
     }
 });
 
+router.get('/search/:ciudad/:zona', async(req, res) => {
+    try {
+        //const parqueaderoDb = await Parqueadero.find({id_ciudad: req.params.ciudad ,direccion:  { $regex: req.params.zona } });
+        const parqueaderoDb = await Parqueadero.find({id_ciudad: req.params.ciudad ,direccion:  { $regex: new RegExp(req.params.zona, "i") } });
+        
+        res.json(parqueaderoDb);
+    } catch (error) {
+        return res.status(400).json({
+            mensaje: 'Ocurrio un error',
+            error
+        })
+    }
+});
+
 // Exportamos la configuración de express app
 module.exports = router;

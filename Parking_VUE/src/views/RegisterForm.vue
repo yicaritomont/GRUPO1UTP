@@ -159,6 +159,7 @@
                         'servicios': 'Actualiza tus servicios',
                         'direccion' : "Actualiza la dirección de tu parqueadero",
                         'telefono' : '000',
+                        'id_ciudad':'1',
                         }];
               this.axios.post('park/nuevo',cliente)
               .then(res =>{
@@ -170,7 +171,9 @@
             }
             this.usuarios.unshift(res.data);
             this.$swal("Excelente! , Se ha registrado correctamente");
+            window.location.origin
             this.$router.push({name: "/login"});
+            location.reload();
 
           })
           .catch( e =>{

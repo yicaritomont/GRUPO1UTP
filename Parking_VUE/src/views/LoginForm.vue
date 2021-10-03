@@ -30,7 +30,7 @@
                   <input v-model="password" type="password" class="form-control" name="password" placeholder="Contraseña" required="">
                 </div>
                 <div class="form-group">
-                  <button type="submit" class="form-control px-3 button is-dark" @click="logintTest">Ingresar</button>
+                  <button type="submit" class="form-control px-3 button is-dark" >Ingresar</button>
                 </div>
               </form>
             </div>
