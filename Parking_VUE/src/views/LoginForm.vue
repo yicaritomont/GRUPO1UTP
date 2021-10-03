@@ -136,6 +136,7 @@
               localStorage.id_user = res.data._id;
               localStorage.tipo_usuario = res.data.tipo_usuario;
               localStorage.nombre_usuario = res.data.nombre + ' '  + res.data.apellido;
+              localStorage.telefono = res.data.telefono;
               window.location.origin
               this.$router.push({name: "home"});
               location.reload();

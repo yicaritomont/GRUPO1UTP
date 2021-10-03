@@ -12,19 +12,21 @@
                 <thead class="thead-dark">
                   <tr>
                     <th scope="col">Parqueadero</th>
+                    <th scope="col">Contacto Parqueadero</th>
                     <th scope="col">Cliente</th>
-                    <th scope="col">Contacto</th>
+                    <th scope="col">Contacto Cliente</th>
                     <th scope="col">Descripción</th>
                     <th scope="col">Fecha</th>
                   </tr> 
                 </thead>
                 <tbody>
-                  <tr  v-for="parqueadero in parqueaderos" :parqueadero="parqueadero" :key="parqueadero.id">
-                    <td>{{parqueadero.parqueadero}}</td>
-                    <td>{{parqueadero.cliente}}</td>
-                    <td>{{parqueadero.contacto_cliente}}</td>
-                    <td>{{parqueadero.servicios}}</td>
-                    <td>{{parqueadero.fecha}}</td>
+                  <tr  v-for="data in parqueaderos"  :key="data._id">
+                    <td>{{data.nombre_parqueadero}}</td>
+                    <td>{{data.contacto_parqueadero}}</td>
+                    <td>{{data.nombre_cliente}}</td>
+                    <td>{{data.contacto_cliente}}</td>
+                    <td>{{data.descripcion_servicio}}</td>
+                    <td>{{data.fecha}}</td>
                   </tr>  
                 </tbody>
               </table>
@@ -146,40 +148,41 @@
         "ciudad": "Ciudad Piloto",
     }
   ];
-  let parqueaderos = [
-    {
-        "id": 1,
-        "cliente": "Pepito",
-        "contacto_cliente": 3152369869,
-        "parqueadero": "El pijao Park",
-        "fecha": "26/09/2021 10:00:00",
-        "servicios": "necesito servicio de parqueo",
-    },
-    {
-        "id": 2,
-        "cliente": "Pepito",
-        "contacto_cliente": 3152369869,
-        "parqueadero": "El pijao Park",
-        "fecha": "26/09/2021 11:00:00",
-        "servicios": "servicio de parqueo y lavado",
-    },
-    {
-        "id": 3,
-        "cliente": "Pepito",
-        "contacto_cliente": 3152369869,
-        "parqueadero": "El pijao Park",
-        "fecha": "26/09/2021 12:00:00",
-        "servicios": "servicio de lavado",
-    }
-  ];
   export default {
     name: "EventSingle",
     data() {
       return {
-        parqueadero:null,
-        parqueaderos:parqueaderos,
+        parqueaderos:null,
         ciudadSeleccionada : {},
         ciudades: ciudades
+      }
+    },
+    beforeCreate(){          
+      console.log("sdsd",localStorage.tipo_usuario);
+     
+      if(localStorage.tipo_usuario == "C"){
+        this.axios.get('date/listUser/'+localStorage.id_user)
+          .then( res => {
+            this.parqueaderos= res.data;
+            console.log('RES C',this.parqueaderos);
+           
+          }) 
+      }
+      else if(localStorage.tipo_usuario == "P") {
+        this.axios.get('date/listPark/'+localStorage.id_user)
+          .then( res => {
+            this.parqueaderos= res.data;
+            console.log('RES P',this.parqueaderos);
+
+          }) 
+      }
+      else{
+         this.axios.get('date/all')
+          .then( res => {
+            this.parqueaderos= res.data;
+            console.log('RES FAUIL',this.parqueaderos);
+
+          }) 
       }
     }
 }

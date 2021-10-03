@@ -34,6 +34,34 @@ router.get('/:id', async(req, res) => {
     }
 });
 
+//Consultar separacion  por usuario
+router.get('/listUser/:id', async(req, res) => {
+    const _id = req.params.id;
+    try {
+       const separacionDB = await Separacion.find({'id_cliente':_id});
+        res.json(separacionDB);
+    } catch (error) {
+        return res.status(400).json({
+            mensaje: 'Ocurrio un error',
+            error
+        })
+    }
+});
+
+router.get('/listPark/:id', async(req, res) => {
+    const _id = req.params.id;
+    try {
+       const separacionDB = await Separacion.find({'id_parqueadero':_id});
+        res.json(separacionDB);
+    } catch (error) {
+        return res.status(400).json({
+            mensaje: 'Ocurrio un error',
+            error
+        })
+    }
+});
+
+
 // Get con todas las separaciones
 router.get('/all', async(req, res) => {
     try {
