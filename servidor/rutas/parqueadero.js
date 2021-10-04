@@ -10,9 +10,7 @@ router.post('/nuevo', async(req, res) => {
     try {
         const parqueaderoDB = await Parqueadero.create(body);
         res.status(200).json(parqueaderoDB);
-        console.log("READY");
     } catch (error) {
-        console.log("FALSE");
         return res.status(500).json({
         mensaje: 'Ocurrio un error',
         error

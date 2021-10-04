@@ -127,11 +127,9 @@
         let item = {'email': this.email, 'password': this.password};
         this.axios.post('user/login',item)
           .then( res => {
-            console.log("Res en Login",res);
             if(res.status == 200){
               this.usuarios.unshift(res.data);
               this.$swal("Excelente! logueado");
-              console.log(res.data);
               localStorage.userLog = res.data;
               localStorage.id_user = res.data._id;
               localStorage.tipo_usuario = res.data.tipo_usuario;
@@ -146,8 +144,7 @@
             }
           })
           .catch( e =>{
-            console.log(e);
-            this.$swal("Error al iniciar sesión, intente más tarde");
+            this.$swal("Error al iniciar sesión, intente más tarde",e);
           })
           this.usuario = {}
       }

@@ -142,6 +142,7 @@
         cliente:"",
         ciudadSeleccionada : {},
         ciudades: ciudades, 
+        respuesta: "",
         
       }
     }, 
@@ -152,31 +153,28 @@
           "apellido": item.apellido,
         };
         this.axios.put('user/usuarioup/'+ this.cliente.id_usuario ,itemUsuario)
-          .then( res => {     
-            //let id_usuario_editado = res.data._id;       
-            console.log(res.data);
-            console.log("item",item)
+          .then( res => {   
+            this.respuesta = res;  
+            //let id_usuario_editado = res.data._id;      
             var itemCliente={
               "id_ciudad": item.id_ciudad,
               "documento": item.documento,
               "telefono" : item.telefono,
               "id" : item._id,
+              
             }
             this.axios.put('client/up/'+item._id,itemCliente)
               .then(res =>{
-                console.log("cliente",res);
-                this.$swal("Excelente! , Se ha actualizado correctamente");
+                this.$swal("Excelente! , Se ha actualizado correctamente",res);
               })
               .catch( e =>{
-                console.log("actualizar Cliente ", e);
-                this.$swal("Error! , no hemos actualizado información");
+                this.$swal("Error! , no hemos actualizado información", e);
 
               })
 
           })
           .catch( e =>{
-            console.log(e);
-            this.$swal("No hemos podido realizar la actualizacion intente más tarde");
+            this.$swal("No hemos podido realizar la actualizacion intente más tarde",e);
           })
       }
 

@@ -10,9 +10,7 @@ router.post('/nuevo', async(req, res) => {
     try {
         const separacionDB = await Separacion.create(body);
         res.status(200).json(separacionDB);
-        console.log("READY");
     } catch (error) {
-        console.log("FALSE");
         return res.status(500).json({
         mensaje: 'Ocurrio un error',
         error

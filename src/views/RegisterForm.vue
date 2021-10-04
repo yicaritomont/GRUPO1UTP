@@ -1,3 +1,4 @@
+/* eslint-enable no-unused-vars */
 <template>
   <section class="ftco-section">
     <div class="container">
@@ -146,10 +147,10 @@
                         }];
               this.axios.post('client/nuevo',cliente)
               .then(res =>{
-                console.log("cliente",res);
+                let respuesta = res; // eslint-disable-line no-unused-vars
               })
               .catch( e =>{
-                console.log("crear Cliente ", e);
+                let error = e; // eslint-disable-line no-unused-vars
               })
             }
             if(item.tipo_usuario == "P") {
@@ -162,12 +163,6 @@
                         'id_ciudad':'1',
                         }];
               this.axios.post('park/nuevo',cliente)
-              .then(res =>{
-                console.log("parqueadero",res);
-              })
-              .catch( e =>{
-                console.log("crear PArqueadero ", e);
-              })
             }
             this.usuarios.unshift(res.data);
             this.$swal("Excelente! , Se ha registrado correctamente");
@@ -177,8 +172,7 @@
 
           })
           .catch( e =>{
-            console.log(e);
-            this.$swal("No hemos podido realizar el registro intente más tarde");
+            this.$swal("No hemos podido realizar el registro intente más tarde",e);
           })
           this.usuario = {}
       }

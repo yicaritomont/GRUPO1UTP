@@ -186,17 +186,15 @@
     },
     methods: {
       listarParqueadero(){
-        let item = {'ciudad': this.ciudadSeleccionada, 'zona': this.zona};
-        console.log(item);
+        //let item = {'ciudad': this.ciudadSeleccionada, 'zona': this.zona};
+
         this.axios.get('park/search/' +this.ciudadSeleccionada + '/' +this.zona )
           .then( res => {
-            console.log(res);
             this.parqueaderos = res.data;
             
           })
           .catch( e =>{
-            console.log(e);
-            this.$swal("Se ha presentado un error en la búsqueda, intente de nuevo");
+            this.$swal("Se ha presentado un error en la búsqueda, intente de nuevo",e);
           })
       
         

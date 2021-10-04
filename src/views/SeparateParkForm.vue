@@ -187,7 +187,6 @@
       }
     },    
     created() {
-      console.log(this.$route.params.id);
         const ID = this.$route.params.id;
         this.axios.get('park/'+ID)
           .then( res => {
@@ -209,7 +208,6 @@
           "descripcion_servicio":this.servicio};
         this.axios.post('date/nuevo',item)
           .then( res => {
-            console.log("Separacion",res);
             if(res.status == 200){
               this.$swal("Exitoso! se ha registrado su separación");
               location.reload();
@@ -221,8 +219,7 @@
             
           })
           .catch( e =>{
-            console.log(e);
-            this.$swal("Error al realizar la separación, intente más tarde");
+            this.$swal("Error al realizar la separación, intente más tarde",e);
           })
         
       }
