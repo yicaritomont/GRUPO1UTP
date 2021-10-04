@@ -44,7 +44,6 @@
 export default {
   name: 'Nav',
   data() {
-    console.log(localStorage.tipo_usuario)
     return {
       auth: localStorage.userLog,
       tipo_usuario : localStorage.tipo_usuario,

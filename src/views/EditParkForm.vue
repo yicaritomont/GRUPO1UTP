@@ -1,4 +1,5 @@
 /* eslint-disable no-undef */
+/* eslint-disable no-unused-vars */
 <template>
   <section class="ftco-section">
     <div class="container">
@@ -169,9 +170,8 @@
         };
         this.axios.put('user/usuarioup/'+ this.parqueadero.id_usuario ,itemUsuario)
           .then( res => {     
-            //let id_usuario_editado = res.data._id;       
-            console.log(res.data);
-            console.log("item",item)
+            //let id_usuario_editado = res.data._id;    
+            let respuesta= res; // eslint-disable-line no-unused-vars
             var itemParqueadero={
               "id_ciudad": item.id_ciudad,
               "nombre_parqueadero": item.nombre_parqueadero,
@@ -181,19 +181,16 @@
             }
             this.axios.put('park/up/'+item._id,itemParqueadero)
               .then(res =>{
-                console.log("parqueadero",res);
-                this.$swal("Excelente! , Se ha actualizado correctamente");
+                this.$swal("Excelente! , Se ha actualizado correctamente",res);
               })
               .catch( e =>{
-                console.log("actualizar Cliente ", e);
-                this.$swal("Error! , no hemos actualizado información");
+                this.$swal("Error! , no hemos actualizado información",e);
 
               })
 
           })
           .catch( e =>{
-            console.log(e);
-            this.$swal("No hemos podido realizar la actualizacion intente más tarde");
+            this.$swal("No hemos podido realizar la actualizacion intente más tarde",e);
           })
       }
 

@@ -158,13 +158,11 @@
       }
     },
     beforeCreate(){          
-      console.log("sdsd",localStorage.tipo_usuario);
      
       if(localStorage.tipo_usuario == "C"){
         this.axios.get('date/listUser/'+localStorage.id_user)
           .then( res => {
             this.parqueaderos= res.data;
-            console.log('RES C',this.parqueaderos);
            
           }) 
       }
@@ -172,7 +170,6 @@
         this.axios.get('date/listPark/'+localStorage.id_user)
           .then( res => {
             this.parqueaderos= res.data;
-            console.log('RES P',this.parqueaderos);
 
           }) 
       }
@@ -180,7 +177,6 @@
          this.axios.get('date/all')
           .then( res => {
             this.parqueaderos= res.data;
-            console.log('RES FAUIL',this.parqueaderos);
 
           }) 
       }

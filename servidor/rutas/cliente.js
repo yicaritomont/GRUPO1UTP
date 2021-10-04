@@ -70,8 +70,6 @@ router.delete('/:id', async(req, res) => {
 router.put('/up/:id', async(req, res) => {
     const _id = req.params.id;
     const body = req.body;
-    console.log("param",req.params);
-    console.log("body",req.body);
     try {
         const clienteDb = await Cliente.findByIdAndUpdate(
         _id,
