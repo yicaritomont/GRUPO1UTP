@@ -35,7 +35,7 @@
                 <br<br>
                 <div class="d-md-flex">
                   <p style="color:black;margin-left: 21px;"><b></b></p>
-                  <a href="#" class="button is-dark" style="height: 27px;border-radius: 50px;margin-left: 22px;">Regresar</a>
+                  <a href="/src/public/index.html" class="button is-dark" style="height: 27px;border-radius: 50px;margin-left: 22px;">Regresar</a>
                 </div>
               </form>
             </div>
